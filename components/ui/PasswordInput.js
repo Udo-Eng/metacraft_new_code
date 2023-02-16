@@ -54,9 +54,11 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    fontSize: 14,
     marginHorizontal: 5,
   },
   inputError: {
+    fontSize: 14,
     backgroundColor: "#d49b9b",
   },
   labelError: {

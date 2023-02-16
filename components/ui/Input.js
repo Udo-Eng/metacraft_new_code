@@ -1,5 +1,6 @@
 import { TextInput, View, Text, StyleSheet } from "react-native";
 
+
 const Input = ({
   label,
   children,
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     borderColor: "gray",
-    marginTop: 8,
+    marginTop: 6,
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
@@ -50,9 +51,11 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    fontSize: 14,
     marginHorizontal: 5,
   },
   inputError: {
+    fontSize: 14,
     backgroundColor: "#d49b9b",
   },
   labelError: {

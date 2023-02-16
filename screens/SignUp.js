@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
 } from "react-native";
 import { COLORS } from "../constants";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -14,6 +13,7 @@ import PromptUser from "../components/ui/PromptUser";
 import Input from "../components/ui/Input";
 import PasswordInput from "../components/ui/PasswordInput";
 import Logo from "../components/ui/Logo";
+import SignUpForm from "../components/auth/SignUpForm";
 
 const SignUp = ({ navigation }) => {
   return (
@@ -21,113 +21,7 @@ const SignUp = ({ navigation }) => {
       <Logo />
       <Text style={styles.title}>Let’s get you started!</Text>
 
-      {/* FIRSTNAME */}
-      <Input
-        label="First Name"
-        textInputConfig={{
-          onChangeText: (inputText) => console.log(inputText),
-          autoCorrect: false,
-          autoCapitalize: false,
-        }}
-      >
-        <Ionicons
-          name="person-outline"
-          size={24}
-          color="black"
-          style={styles.iconOpacity}
-        />
-      </Input>
-
-      {/*LASTNAME */}
-      <Input
-        label="Last Name"
-        textInputConfig={{
-          onChangeText: (inputText) => console.log(inputText),
-          autoCorrect: false,
-          autoCapitalize: false,
-        }}
-      >
-        <Ionicons
-          name="person-outline"
-          size={24}
-          color="black"
-          style={styles.iconOpacity}
-        />
-      </Input>
-
-      {/* PHONE NUMBER */}
-      <Input
-        label="Phone Number"
-        textInputConfig={{
-          onChangeText: (inputText) => console.log(inputText),
-          autoCorrect: false,
-          autoCapitalize: false,
-        }}
-      >
-        <Feather
-          name="phone"
-          size={24}
-          color="black"
-          style={styles.iconOpacity}
-        />
-      </Input>
-
-      {/* EMAIL INPUT */}
-
-      <Input
-        label="Email"
-        textInputConfig={{
-          onChangeText: (inputText) => console.log(inputText),
-          autoCorrect: false,
-          autoCapitalize: false,
-        }}
-      >
-        <MaterialCommunityIcons
-          name="email-outline"
-          size={24}
-          color="black"
-          style={styles.iconOpacity}
-        />
-      </Input>
-
-      {/* PASSWORD INPUT  */}
-
-      <PasswordInput
-        textInputConfig={{
-          onChangeText: (inputText) => console.log(inputText),
-          autoCorrect: false,
-          autoCapitalize: false,
-        }}
-      />
-      <View style={styles.passwordRulesContainer}>
-        <Text style={styles.passwordRules}>
-          Password must have at least one non alphanumberic character and be
-          atleast 6 characters
-        </Text>
-      </View>
-
-      {/* REFFERAL CODE  INPUT */}
-
-      <Input
-        label="Enter Referral Code"
-        textInputConfig={{
-          onChangeText: (inputText) => console.log(inputText),
-          autoCorrect: false,
-          autoCapitalize: false,
-        }}
-      />
-
-      {/*CONTINUE BUTTON */}
-
-      <PrimaryButton
-        btnContainer={{ marginTop: 50 }}
-        onPress={() => {
-          // TODO LATER
-          navigation.replace("verifyphonenumber");
-        }}
-      >
-        Continue
-      </PrimaryButton>
+      <SignUpForm />
 
       {/* FOOTER SECTION */}
 
