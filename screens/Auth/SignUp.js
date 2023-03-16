@@ -4,16 +4,10 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
-import { COLORS } from "../constants";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import PrimaryButton from "../components/ui/PrimaryButton";
-import PromptUser from "../components/ui/PromptUser";
-import Input from "../components/ui/Input";
-import PasswordInput from "../components/ui/PasswordInput";
-import Logo from "../components/ui/Logo";
-import SignUpForm from "../components/auth/SignUpForm";
+import { COLORS } from "../../constants";
+import PromptUser from "../../components/ui/PromptUser";
+import Logo from "../../components/ui/Logo";
+import SignUpForm from "../../components/auth/SignUpForm";
 
 const SignUp = ({ navigation }) => {
   return (
@@ -75,7 +69,7 @@ const styles = StyleSheet.create({
     color: "#000",
   },
   link: {
-    color: COLORS.primaryColor,
+    color: COLORS.primaryColorText,
   },
 });
 

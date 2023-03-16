@@ -21,7 +21,9 @@ function formattedPhoneNumber(phoneNumber){
 
 //   SIGNUP FROM WITH STATE UI AND LOGIC
 const SignUpForm = () => {
+  
   const navigation = useNavigation();
+
   // Setting up the form  state
   const [inputs, setInputs] = useState({
     firstName: { value: "", isValid: true },
@@ -65,7 +67,7 @@ const SignUpForm = () => {
       inputs.email.value.trim().length > 0 && inputs.email.value.includes("@");
     const passwordIsValid = inputs.password.value.trim().length > 6;
 
-    // Update UI state
+    // Update inputs validity states 
 
     setInputs((currentInputs) => {
       return {
@@ -92,6 +94,7 @@ const SignUpForm = () => {
         },
       };
     });
+
     // Show feedback if any input is isValid
 
     if (
@@ -114,13 +117,25 @@ const SignUpForm = () => {
     };
 
     // Testing the User Data
-    // console.log(userData); 
-    console.log("Sucessfully sign up your account Thanks");
-    clearUserInputs();
+  
 
-    // Navigate use to verify phone screen on success
+
+    // console.log(userData); 
+    
+  
+    console.log("Sucessfully sign up your account Thanks");
+    
+    // Send A request to The backend  service 
+    
+    // Navigate  to verify phone screen on successful responses 
+    
+    
     // TODO LATER 
-    // navigation.replace("verifyphonenumber");
+    
+    navigation.replace("verifyphonenumber");
+    
+    // Clear all the inputs states  
+    clearUserInputs();
   };
 
   return (

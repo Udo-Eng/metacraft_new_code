@@ -26,7 +26,7 @@ const Input = ({
       <Text style={inputLabelStyle}>{label}</Text>
       <View style={defaultContainerStyle}>
         {children}
-        <TextInput style={defaultInputStyle} {...textInputConfig} />
+        <TextInput style={defaultInputStyle} {...textInputConfig} cursorColor="#000000"/>
       </View>
     </View>
   );

@@ -3,20 +3,24 @@ import React ,{useState,useRef,useEffect} from "react";
 import { COLORS, SIZES } from "../../constants";
 import NextButton from "./NextButton";
 import GetStartedSection from "./GetStartedSection";
+import {useNavigation} from "@react-navigation/native";
 
 const OnBoardingList = ({ data }) => {
   const flatlistRef = useRef();
   const [currentPage, setCurrentPage] = useState(0);
   const [viewableItems, setViewableItems] = useState([]);
+  const navigation = useNavigation();
 
   const handleViewableItemsChanged = useRef(({ viewableItems }) => {
     setViewableItems(viewableItems);
   });
 
+
   useEffect(() => {
     if (!viewableItems[0] || currentPage === viewableItems[0].index) return;
 
     setCurrentPage(viewableItems[0].index);
+    
   }, [viewableItems]);
 
   const nextHandler = () => {

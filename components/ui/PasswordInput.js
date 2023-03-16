@@ -28,7 +28,7 @@ const PasswordInput = ({
       {/* PASSWORD INPUT*/}
       <Text style={inputLabelStyle}>Password</Text>
       <View style={defaultContainerStyle}>
-        <TextInput style={defaultInputStyle} {...textInputConfig}/>
+        <TextInput style={defaultInputStyle} {...textInputConfig} cursorColor="#000000" secure/>
         <Ionicons name="ios-eye-outline" size={24} color="black" />
       </View>
     </View>

@@ -5,10 +5,10 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import { COLORS } from "../constants";
-import PromptUser from "../components/ui/PromptUser";
-import Logo from "../components/ui/Logo";
-import SignInForm from "../components/auth/SignInForm";
+import { COLORS } from "../../constants";
+import PromptUser from "../../components/ui/PromptUser";
+import Logo from "../../components/ui/Logo";
+import SignInForm from "../../components/auth/SignInForm";
 
 const SignIn = ({ navigation }) => {
   return (
@@ -60,16 +60,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     width: "100%",
     marginTop: 28,
-  },
-  forgotPasswordContainer: {
-    marginVertical: 8,
-    width: 250,
-    alignItems: "flex-start",
-  },
-  forgotPassword: {
-    textDecorationLine: "underline",
-    opacity: 1,
-    color: "#828282",
   },
   link: {
     color: COLORS.primaryColor,

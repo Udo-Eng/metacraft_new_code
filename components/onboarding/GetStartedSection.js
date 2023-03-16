@@ -3,8 +3,10 @@ import React from "react";
 import { COLORS ,SIZES} from "../../constants";
 import PromptUser from "../ui/PromptUser";
 
+
 // Function to render the Get Started  Section
 function GetStartedSection({ title, signUpHandler, signInHandler }) {
+
   return (
     <>
       <Pressable onPress={signUpHandler}>
