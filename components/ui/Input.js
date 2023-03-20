@@ -8,6 +8,7 @@ const Input = ({
   LabelStyle,
   inputStyle,
   invalid,
+  inputContainer,
 }) => {
   const inputLabelStyle = [
     styles.inputLabel,
@@ -19,6 +20,7 @@ const Input = ({
   const defaultContainerStyle = [
     styles.inputContainer,
     invalid ? styles.inputError : null,
+    inputContainer,
   ];
 
   return (

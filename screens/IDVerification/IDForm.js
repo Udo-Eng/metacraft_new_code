@@ -27,7 +27,6 @@ const IDForm = ({ navigation }) => {
     styles.button,
     {
       backgroundColor: idNumber.length > 4 ? COLORS.primaryColor : "#E0E0E0",
-      color: "#ffffff",
     },
   ];
   const buttonTextStyles = [
@@ -137,7 +136,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#E0E0E0",
     marginTop: 40,
     // borderColor: COLORS.primaryColor,
-
     borderRadius: 4,
   },
   buttonText: {

@@ -5,8 +5,8 @@ import { AntDesign } from '@expo/vector-icons';
 const IDItem = ({ item, onPress }) => {
   return (
     <View>
-      <Pressable onPress={onPress} style={style.itemContainer}>
-        <Text style={StyleSheet.text}>{item}</Text>
+      <Pressable onPress={onPress} style={styles.itemContainer}>
+        <Text style={styles.text}>{item}</Text>
         <AntDesign name="right" size={16} color="#4E6458" />
       </Pressable>
     </View>
@@ -14,7 +14,7 @@ const IDItem = ({ item, onPress }) => {
 };
 
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     alignItems: "center",

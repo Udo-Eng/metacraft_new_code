@@ -1,5 +1,4 @@
 import {
-  ScrollView,
   View,
   Text,
   StyleSheet,
@@ -11,13 +10,17 @@ import Logo from "../../components/ui/Logo";
 import SignInForm from "../../components/auth/SignInForm";
 
 const SignIn = ({ navigation }) => {
+
+
   return (
       <View style={styles.scrollView}>
+        {/* SIGN IN HEADER */}
         <Logo />
         <Text style={styles.title}>
           Welcome <Text style={styles.link}>Back!</Text>
         </Text>
 
+        {/* SIGN IN FORM  */}
         <SignInForm />
 
         {/*Prompt the User to flow another User workflow  */}

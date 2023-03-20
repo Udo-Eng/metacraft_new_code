@@ -1,4 +1,9 @@
-import { View, Text, StyleSheet, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+} from "react-native";
 import { useState } from "react";
 import { COLORS } from "../../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -7,6 +12,7 @@ import PasswordInput from "../ui/PasswordInput";
 import PrimaryButton from "../ui/PrimaryButton";
 import InputErrorMessage from "../ui/InputErrorMessage";
 import { useNavigation } from "@react-navigation/native";
+
 
 const SignInForm = () => {
   const [inputs, setInputs] = useState({
@@ -32,7 +38,7 @@ const SignInForm = () => {
     });
   }
 
-  function onSubmitHandler() {
+  async function onSubmitHandler() {
     const emailIsInValid = !(
       inputs.email.value.trim().length > 0 && inputs.email.value.includes("@")
     );
@@ -58,18 +64,21 @@ const SignInForm = () => {
       };
 
       // Send a request to backend Server
-
+     
       // Navigate to user dashboard on sucessful signin
 
-      console.log("Sign In sucessfully");
+      // console.log("Sign In sucessfully");
 
       navigation.replace("home");
 
-
-      //  Clear the User inputs states on sucessful signin 
+      //  Clear the User inputs states on sucessful signin
       clearUserInputs();
     }
   }
+
+  // if(error){
+  //   return <>{error && Alert.alert("Invalid password or email")}</>;
+  // }
 
   return (
     <KeyboardAvoidingView>

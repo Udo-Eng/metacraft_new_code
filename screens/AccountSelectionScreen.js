@@ -4,10 +4,13 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import PromptUser from "../components/ui/PromptUser";
 import AccountSelection from "../components/ui/AccountSelection";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+
 
 const AccountSelectionScreen = () => {
+
+
   const navigation = useNavigation();
+
   const [clientSelected, setClientSelected] = useState(false);
   const [artisanSelected, setArtisanSelected] = useState(false);
 
@@ -29,8 +32,9 @@ const AccountSelectionScreen = () => {
       navigation.navigate("artisanonboarding");
       setArtisanSelected(false);
     }, 100);
-    
   }
+
+  
 
   return (
     <View style={styles.screen}>
@@ -73,6 +77,12 @@ const AccountSelectionScreen = () => {
 };
  
 
+
+export default AccountSelectionScreen;
+
+
+
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -81,7 +91,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   title: {
-    color: Colors.titleColor,
+    color: COLORS.titleColor,
     marginVertical: 16,
     fontSize: 26,
     letterSpacing: 0.16,
@@ -92,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 20,
     fontWeight: "normal",
-    color: Colors.titleColor,
+    color: COLORS.titleColor,
   },
   questionContainer: {
     width: 328,
@@ -115,11 +125,10 @@ const styles = StyleSheet.create({
   question_info: {
     textAlign: "center",
     fontWeight: "normal",
-    color: Colors.titleColor,
+    color: COLORS.titleColor,
     fontSize: 14,
     lineHeight: 20,
     opacity: 0.5,
   },
 });
 
-export default AccountSelectionScreen;

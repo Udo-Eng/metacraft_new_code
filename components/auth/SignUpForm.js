@@ -208,7 +208,7 @@ const SignUpForm = () => {
         <InputErrorMessage message={"Phone Number is Invalid"} />
       )}
       {/* EMAIL INPUT */}
-
+      
       <Input
         label="Email"
         invalid={!inputs.email.isValid}
