@@ -2,6 +2,7 @@ import { TextInput, View, Text, StyleSheet } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const PasswordInput = ({
+  label,
   textInputConfig,
   LabelStyle,
   inputStyle,
@@ -26,10 +27,10 @@ const PasswordInput = ({
   return (
     <View style={styles.inputOuterContainer}>
       {/* PASSWORD INPUT*/}
-      <Text style={inputLabelStyle}>Password</Text>
+      <Text style={inputLabelStyle}>{label ? label : "Password"}</Text>
       <View style={defaultContainerStyle}>
-        <TextInput style={defaultInputStyle} {...textInputConfig} cursorColor="#000000" secure/>
-        <Ionicons name="ios-eye-outline" size={24} color="black" />
+        <TextInput style={defaultInputStyle} {...textInputConfig} cursorColor="#000000" secureTextEntry={true}/>
+        <Ionicons name="ios-eye-outline" size={24} color="grey" />
       </View>
     </View>
   );
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     marginTop: 26,
   },
   inputContainer: {
-    borderColor: "gray",
+    borderColor: "#E0E0E0",
     marginTop: 8,
     borderWidth: 1,
     borderRadius: 10,

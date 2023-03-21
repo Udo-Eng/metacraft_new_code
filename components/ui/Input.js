@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     marginTop: 26,
   },
   inputContainer: {
-    borderColor: "gray",
+    borderColor: "#E0E0E0",
     marginTop: 6,
     borderWidth: 1,
     borderRadius: 10,

@@ -15,7 +15,11 @@ import SignIn from "./screens/Auth/SignIn";
 // import ReferAndEarn from "./screens/Profile/ReferAndEarn";
 // import Settings from "./screens/Profile/Settings";
 // import Security from "./screens/Profile/SettingsScreen/Security";
+import Language from "./screens/Profile/SettingsScreen/Language";
+import PasswordReset from "./screens/Profile/SettingsScreen/PasswordReset";
+import EmailNotifications from "./screens/Profile/Notifications/EmailNotifications";
 // import Notifications from "./screens/Profile/Notifications/Notifications";
+import PushNotifications from "./screens/Profile/Notifications/PushNotifications";
 // import AsyncStorage from "@react-native-async-storage/async-storage";
 // import { useEffect, useState } from "react";
 
@@ -38,11 +42,11 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen
+        {/* <Stack.Screen
           options={{ headerShown: false }}
           name="signin"
           component={SignIn}
-        />
+        /> */}
         {/* <Stack.Screen
           options={{ headerShown: false }}
           name="accountselection"
@@ -136,7 +140,7 @@ function App() {
           name="referandearn"
           component={ReferAndEarn}
         /> */}
-{/* 
+        {/* 
         <Stack.Screen
           options={{
             headerTitleAlign: "center",
@@ -175,6 +179,59 @@ function App() {
           name="security"
           component={Security}
         /> */}
+
+        {/* <Stack.Screen
+          options={{
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: "#F2F2F2",
+            },
+            headerTitle: "Push Notifications",
+          }}
+          name="pushNotifications"
+          component={PushNotifications}
+        /> */}
+
+        {/* <Stack.Screen
+          options={{
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: "#F2F2F2",
+            },
+            headerTitle: "Email Notifications",
+          }}
+          name="emailNotifications"
+          component={EmailNotifications}
+        /> */}
+
+        {/* <Stack.Screen
+          options={{
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: "#F2F2F2",
+            },
+            headerTitle: "Language",
+          }}
+          name="language"
+          component={Language}
+        /> */}
+
+                
+        <Stack.Screen
+                  options={{
+                    headerTitleAlign: "center",
+                    headerShadowVisible: false,
+                    headerStyle: {
+                      backgroundColor: "#F2F2F2",
+                    },
+                    headerTitle: "Password Reset",
+                  }}
+                  name="passwordreset"
+                  component={PasswordReset}
+                />
       </Stack.Navigator>
     </NavigationContainer>
   );

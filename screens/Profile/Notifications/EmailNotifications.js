@@ -2,7 +2,7 @@ import { View,StyleSheet } from "react-native";
 import React from "react";
 import SwitchItem from "../../../components/ui/SwitchItem";
 
-const PushNotifications = () => {
+const EmailNotifications = () => {
   const switchItems = [
     {
       text: "Inbox Messages",
@@ -32,7 +32,7 @@ const PushNotifications = () => {
   );
 };
 
-export default PushNotifications;
+export default EmailNotifications;
 
 const styles = StyleSheet.create({
   screen: {
