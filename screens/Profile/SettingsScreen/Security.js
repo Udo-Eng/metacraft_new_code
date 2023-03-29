@@ -2,14 +2,18 @@ import { View, StyleSheet } from "react-native";
 import React from "react";
 import NavLinkImage from "../../../components/Profile/NavLinkImage";
 
-const Security = () => {
-  function onNavigateHandler() {}
+const Security = ({navigation}) => {
+  function onNavigateHandler() {
+
+    navigation.navigate("passwordreset");
+
+  }
 
   return (
     <View style={styles.screen}>
       <NavLinkImage
         iconPath={require("../../../assets/NavIcons/resetIcon.png")}
-        linkText={"Security"}
+        linkText={"Password Reset"}
         onPress={onNavigateHandler}
       />
     </View>

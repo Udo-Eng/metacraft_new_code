@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   inputError: {
     fontSize: 14,
-    backgroundColor: "#d49b9b",
+    borderColor: "#d49b9b",
   },
   labelError: {
     color: "#a31717",

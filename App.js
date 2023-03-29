@@ -1,24 +1,25 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import SuccessScreen from "./screens/Auth/Success";
-// import VerifyPhoneNumber from "./screens/Auth/VerifyPhoneNumber";
-// import Home from "./screens/Home";
-// import SignUp from "./screens/Auth/SignUp";
+import SuccessScreen from "./screens/Auth/Success";
+import VerifyPhoneNumber from "./screens/Auth/VerifyPhoneNumber";
+import Home from "./screens/Home";
+import Menu from "./screens/Menu";
+import SignUp from "./screens/Auth/SignUp";
 import SignIn from "./screens/Auth/SignIn";
-// import SelectID from "./screens/IDVerification/SelectID";
-// import IDForm from "./screens/IDVerification/IDForm";
-// import ArtisanOnBoardingScreen from "./screens/onBoardingScreens/ArtisanOnBoardingScreen";
-// import ClientOnBoardingScreen from "./screens/onBoardingScreens/ClientOnBoardingScreen";
-// import AccountSelectionScreen from "./screens/AccountSelectionScreen";
-// import ArtisianProfile from "./screens/Profile/ArtisianProfile";
-// import PersonalInfo from "./screens/Profile/PersonalInfo";
-// import ReferAndEarn from "./screens/Profile/ReferAndEarn";
-// import Settings from "./screens/Profile/Settings";
-// import Security from "./screens/Profile/SettingsScreen/Security";
+import SelectID from "./screens/IDVerification/SelectID";
+import IDForm from "./screens/IDVerification/IDForm";
+import ArtisanOnBoardingScreen from "./screens/onBoardingScreens/ArtisanOnBoardingScreen";
+import ClientOnBoardingScreen from "./screens/onBoardingScreens/ClientOnBoardingScreen";
+import AccountSelectionScreen from "./screens/AccountSelectionScreen";
+import ArtisianProfile from "./screens/Profile/ArtisianProfile";
+import PersonalInfo from "./screens/Profile/PersonalInfo";
+import ReferAndEarn from "./screens/Profile/ReferAndEarn";
+import Settings from "./screens/Profile/Settings";
+import Security from "./screens/Profile/SettingsScreen/Security";
 import Language from "./screens/Profile/SettingsScreen/Language";
 import PasswordReset from "./screens/Profile/SettingsScreen/PasswordReset";
 import EmailNotifications from "./screens/Profile/Notifications/EmailNotifications";
-// import Notifications from "./screens/Profile/Notifications/Notifications";
+import Notifications from "./screens/Profile/Notifications/Notifications";
 import PushNotifications from "./screens/Profile/Notifications/PushNotifications";
 // import AsyncStorage from "@react-native-async-storage/async-storage";
 // import { useEffect, useState } from "react";
@@ -42,12 +43,32 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+
+        {/* SIGN IN SCREEN IDLE FOR NOW */}
+
+
         {/* <Stack.Screen
           options={{ headerShown: false }}
           name="signin"
           component={SignIn}
         /> */}
         {/* <Stack.Screen
+          options={{ headerShown: false }}
+          name="home"
+          component={Home}
+        /> */}
+
+        {/* MENU SCREEN IDLE FOR NOW  */}
+
+        {/* <Stack.Screen
+          options={{ headerShown: false }}
+          name="menu"
+          component={Menu}
+        /> */}
+
+        {/* ON BOARDING AND SIGNUP  */}
+
+        <Stack.Screen
           options={{ headerShown: false }}
           name="accountselection"
           component={AccountSelectionScreen}
@@ -68,7 +89,13 @@ function App() {
           name="signin"
           component={SignIn}
         />
-      
+
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="home"
+          component={Home}
+        />
+
         <Stack.Screen
           options={{ headerShown: false }}
           name="signup"
@@ -79,11 +106,7 @@ function App() {
           name="verifyphonenumber"
           component={VerifyPhoneNumber}
         />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="home"
-          component={Home}
-        />
+
         <Stack.Screen
           options={{ headerShown: false }}
           name="success"
@@ -95,27 +118,28 @@ function App() {
           name="selectId"
           component={SelectID}
         />
-          <Stack.Screen
+        <Stack.Screen
           options={{ headerShown: false }}
           name="idform"
           component={IDForm}
-        /> */}
+        />
 
         {/* Profile Screen SetUp  */}
-        {/* <Stack.Screen
+
+        <Stack.Screen
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
-            headerStyle:{
+            headerStyle: {
               backgroundColor: "#F2F2F2",
             },
-            headerTitle: "Profile"
+            headerTitle: "Profile",
           }}
           name="ArtisianProfile"
           component={ArtisianProfile}
-        /> */}
+        />
 
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
@@ -124,11 +148,11 @@ function App() {
             },
             headerTitle: "Personal information",
           }}
-          name="personal info"
+          name="personalInfo"
           component={PersonalInfo}
-        /> */}
+        />
 
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
@@ -139,8 +163,8 @@ function App() {
           }}
           name="referandearn"
           component={ReferAndEarn}
-        /> */}
-        {/* 
+        />
+
         <Stack.Screen
           options={{
             headerTitleAlign: "center",
@@ -152,9 +176,9 @@ function App() {
           }}
           name="settings"
           component={Settings}
-        /> */}
+        />
 
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
@@ -165,9 +189,9 @@ function App() {
           }}
           name="notifications"
           component={Notifications}
-        /> */}
+        />
 
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
@@ -178,9 +202,9 @@ function App() {
           }}
           name="security"
           component={Security}
-        /> */}
+        />
 
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
@@ -191,9 +215,9 @@ function App() {
           }}
           name="pushNotifications"
           component={PushNotifications}
-        /> */}
+        />
 
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
@@ -204,9 +228,9 @@ function App() {
           }}
           name="emailNotifications"
           component={EmailNotifications}
-        /> */}
+        />
 
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
@@ -217,21 +241,20 @@ function App() {
           }}
           name="language"
           component={Language}
-        /> */}
+        />
 
-                
         <Stack.Screen
-                  options={{
-                    headerTitleAlign: "center",
-                    headerShadowVisible: false,
-                    headerStyle: {
-                      backgroundColor: "#F2F2F2",
-                    },
-                    headerTitle: "Password Reset",
-                  }}
-                  name="passwordreset"
-                  component={PasswordReset}
-                />
+          options={{
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: "#F2F2F2",
+            },
+            headerTitle: "Password Reset",
+          }}
+          name="passwordreset"
+          component={PasswordReset}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

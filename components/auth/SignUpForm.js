@@ -70,6 +70,7 @@ const SignUpForm = () => {
     // Update inputs validity states 
 
     setInputs((currentInputs) => {
+
       return {
         firstName: {
           value: currentInputs.firstName.value,
@@ -123,12 +124,16 @@ const SignUpForm = () => {
     // console.log(userData); 
     
   
-    console.log("Sucessfully sign up your account Thanks");
+    
+    // console.log("Sucessfully sign up your account Thanks");
+
     
     // Send A request to The backend  service 
     
     // Navigate  to verify phone screen on successful responses 
-    
+
+    // for now navigate to verify phone screen 
+
     
     // TODO LATER 
     

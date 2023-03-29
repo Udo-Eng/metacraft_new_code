@@ -10,12 +10,14 @@ import OnBoardingList from "../../components/onboarding/onBoardingList";
 
 // The Client Onboarding Screen 
 
-const ClientOnBoardingScreen = ({ }) => {
+const ClientOnBoardingScreen = ({route}) => {
+  
+
  
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.innerContainer}>
-        <OnBoardingList  data={data}/>
+        <OnBoardingList  data={data} />
       </View>
     </SafeAreaView>
   );

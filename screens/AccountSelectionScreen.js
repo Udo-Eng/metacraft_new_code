@@ -21,7 +21,9 @@ const AccountSelectionScreen = () => {
   function clientOnboardingHandler() {
     setClientSelected(true);
     setTimeout(() => {
-      navigation.navigate("clientonboarding");
+      navigation.navigate("clientonboarding",{
+        user : "client"
+      });
       setClientSelected(false);
     }, 500);
   }
@@ -29,7 +31,9 @@ const AccountSelectionScreen = () => {
   function artisanOnboardingHandler() {
     setArtisanSelected(true);
     setTimeout(() => {
-      navigation.navigate("artisanonboarding");
+      navigation.navigate("artisanonboarding",{
+        user : "artisan"
+      });
       setArtisanSelected(false);
     }, 100);
   }

@@ -2,9 +2,9 @@ import { View, Text, Image,StyleSheet,TextInput } from "react-native";
 import React from "react";
 import PrimaryButton from "../../components/ui/PrimaryButton";
 
-const ReferAndEarn = () => {
+const ReferAndEarn = ({navigation}) => {
   function onShareHandler() {
-
+    navigation.navigate("ArtisianProfile");
   }
 
   return (

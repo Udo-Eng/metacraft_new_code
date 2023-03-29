@@ -8,12 +8,13 @@ import {
   import OnBoardingList from "../../components/onboarding/onBoardingList";
 
 //   The Artisan Onboarding Screen 
-  const ArtisanOnBoardingScreen = ({}) => {
+  const ArtisanOnBoardingScreen = ({route}) => {
 
+    
     return (
       <SafeAreaView style={styles.screen}>
         <View style={styles.innerContainer}>
-          <OnBoardingList  data={data}/>
+          <OnBoardingList  data={data} />
         </View>
       </SafeAreaView>
     );

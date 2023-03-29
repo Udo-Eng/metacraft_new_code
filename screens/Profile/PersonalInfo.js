@@ -7,10 +7,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import PrimaryButton from "../../components/ui/PrimaryButton";
 
-const PersonalInfo = () => {
+const PersonalInfo = ({navigation}) => {
   const saveChangesHandler = () => {
     // TODO LATER
     console.log("Items saved");
+
+    navigation.navigate("ArtisianProfile");
+
   };
 
   return (
@@ -20,7 +23,7 @@ const PersonalInfo = () => {
     >
       <ProfileImage profileText={"AT"} />
       {/* UPDATE FORM */}
-      <>
+
         {/* FIRSTNAME */}
         <Input
           label="First Name"
@@ -125,7 +128,7 @@ const PersonalInfo = () => {
         {/* {!inputs.phoneNumber.isValid && (
           <InputErrorMessage message={"Phone Number is Invalid"} />
         )} */}
-      </>
+    
 
       <PrimaryButton
         btnContainer={{ marginTop: 32 }}
@@ -141,8 +144,8 @@ const PersonalInfo = () => {
 
 const styles = StyleSheet.create({
   screen: {
-    paddingLeft: 16,
-    paddingRight: 30,
+    paddingLeft: 18,
+    paddingRight: 18,
     // alignItems: "center",
   },
   btnStyle: {

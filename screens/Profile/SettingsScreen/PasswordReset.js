@@ -3,12 +3,15 @@ import React from "react";
 import PasswordInput from "../../../components/ui/PasswordInput";
 import PrimaryButton from "../../../components/ui/PrimaryButton";
 
-const PasswordReset = () => {
+const PasswordReset = ({navigation}) => {
 
 
   const saveChangesHandler = () => {
     // TODO LATER
     console.log("Password Reset Successful");
+
+    navigation.navigate("ArtisianProfile");
+    
   };
 
   return (

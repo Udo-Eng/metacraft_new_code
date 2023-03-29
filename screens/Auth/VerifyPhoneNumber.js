@@ -7,12 +7,12 @@ import {
   Image,
 } from "react-native";
 import { COLORS, SIZES } from "../../constants";
-import { useNavigation } from "@react-navigation/native";
 import NumberInput from "../../components/ui/NumberInput";
 import { useState, useRef, useEffect } from "react";
 
-const VerifyPhoneNumber = () => {
-  const navigation = useNavigation();
+const VerifyPhoneNumber = ({navigation}) => {
+ 
+
   const [num1, setNum1] = useState("");
   const [num2, setNum2] = useState("");
   const [num3, setNum3] = useState("");
@@ -74,7 +74,14 @@ const VerifyPhoneNumber = () => {
 
       // route the user to Login screen 
 
-      // else remain on screen and display verfication number  is invalid 
+      // else remain on screen and display verfication number  is invalid
+      
+      if(verifyNumber.length >=  5){
+            navigation.navigate("signin");
+      }
+
+
+
   }
 
   return (

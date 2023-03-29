@@ -93,7 +93,8 @@ const OnBoardingList = ({ data }) => {
         viewabilityConfig={{ viewAreaCoveragePercentThreshold: 100 }}
         initialNumToRender={1}
       />
-
+      
+    
       {/* Logic To either return the Next Button or the Getting Started Button  */}
       {currentPage === data.length - 1 ? (
         <GetStartedSection

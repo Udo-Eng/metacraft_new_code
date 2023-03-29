@@ -4,14 +4,18 @@ import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import NavLinkIcon from "../../../components/Profile/NavLinkIcon";
 
-const Notifications = () => {
+const Notifications = ({navigation}) => {
+
+
   const navLinksData = [
     {
       text: "Push Notifications",
       icon: () => (
         <Ionicons name="ios-notifications-outline" size={24} color="#420D8B" />
       ),
-      handler: function () {},
+      handler: function () {
+        navigation.navigate("pushNotifications");
+      },
     },
     {
       text: "Email Notifications",
@@ -22,7 +26,10 @@ const Notifications = () => {
           color="#420D8B"
         />
       ),
-      handler: function () {},
+      handler: function () {
+
+        navigation.navigate("emailNotifications");
+      },
     },
   ];
 

@@ -18,6 +18,7 @@ function GetStartedSection({ title, signUpHandler, signInHandler }) {
       </Pressable>
 
       {/* RENDER USER PROMPT */}
+      
       <PromptUser
         prompt="Already have an account?"
         linkText={"Sign In"}

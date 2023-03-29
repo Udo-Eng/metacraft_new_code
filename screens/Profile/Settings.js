@@ -5,23 +5,23 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import NavLinkIcon from "../../components/Profile/NavLinkIcon";
 
-const Settings = () => {
+const Settings = ({navigation }) => {
 
     const navLinksData = [
         {
           text: "Notifications",
           icon: () => <Ionicons name="ios-notifications-outline" size={24} color="#420D8B" />,
-          handler: function () {},
+          handler: function () { navigation.navigate("notifications"); },
         },
         {
           text: "Language",
           icon: () => <MaterialIcons name="language" size={24} color="#420D8B" />,
-          handler: function () {},
+          handler: function () { navigation.navigate("language"); },
         },
         {
           text: "Security",
           icon: () => <MaterialIcons name="security" size={24} color="#420D8B" />,
-          handler: function () {},
+          handler: function () { navigation.navigate("security"); },
         },
       ];
 
