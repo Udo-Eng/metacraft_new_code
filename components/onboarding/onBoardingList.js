@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet, FlatList ,Image} from "react-native";
-import React ,{useState,useRef,useEffect} from "react";
+import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import React, { useState, useRef, useEffect } from "react";
 import { COLORS, SIZES } from "../../constants";
 import NextButton from "./NextButton";
 import GetStartedSection from "./GetStartedSection";
-import {useNavigation} from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const OnBoardingList = ({ data }) => {
   const flatlistRef = useRef();
@@ -15,12 +16,10 @@ const OnBoardingList = ({ data }) => {
     setViewableItems(viewableItems);
   });
 
-
   useEffect(() => {
     if (!viewableItems[0] || currentPage === viewableItems[0].index) return;
 
     setCurrentPage(viewableItems[0].index);
-    
   }, [viewableItems]);
 
   const nextHandler = () => {
@@ -71,11 +70,13 @@ const OnBoardingList = ({ data }) => {
     );
   }
 
-  function signUpHandler() {
+  async function signUpHandler() {
+    // AsyncStorage.setItem("isFirstLaunch", "true");
     navigation.replace("signup");
   }
 
-  function signInHandler() {
+ async  function signInHandler() {
+  //  AsyncStorage.setItem("isFirstLaunch", "true");
     navigation.replace("signin");
   }
 
@@ -93,8 +94,7 @@ const OnBoardingList = ({ data }) => {
         viewabilityConfig={{ viewAreaCoveragePercentThreshold: 100 }}
         initialNumToRender={1}
       />
-      
-    
+
       {/* Logic To either return the Next Button or the Getting Started Button  */}
       {currentPage === data.length - 1 ? (
         <GetStartedSection
@@ -108,7 +108,6 @@ const OnBoardingList = ({ data }) => {
     </>
   );
 };
-
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -168,6 +167,5 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
 });
-
 
 export default OnBoardingList;

@@ -1,5 +1,8 @@
 // import axios from "axios";
-// RESTFUL API 
+
+// Declare API Request Handlers for each request to the backend server
+
+
 export async function signInUser(userData){
      
      const response = await axios.post("https://metacraft.com/auth/",userData);

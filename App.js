@@ -1,260 +1,66 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import SuccessScreen from "./screens/Auth/Success";
-import VerifyPhoneNumber from "./screens/Auth/VerifyPhoneNumber";
-import Home from "./screens/Home";
-import Menu from "./screens/Menu";
-import SignUp from "./screens/Auth/SignUp";
-import SignIn from "./screens/Auth/SignIn";
-import SelectID from "./screens/IDVerification/SelectID";
-import IDForm from "./screens/IDVerification/IDForm";
-import ArtisanOnBoardingScreen from "./screens/onBoardingScreens/ArtisanOnBoardingScreen";
-import ClientOnBoardingScreen from "./screens/onBoardingScreens/ClientOnBoardingScreen";
-import AccountSelectionScreen from "./screens/AccountSelectionScreen";
-import ArtisianProfile from "./screens/Profile/ArtisianProfile";
-import PersonalInfo from "./screens/Profile/PersonalInfo";
-import ReferAndEarn from "./screens/Profile/ReferAndEarn";
-import Settings from "./screens/Profile/Settings";
-import Security from "./screens/Profile/SettingsScreen/Security";
-import Language from "./screens/Profile/SettingsScreen/Language";
-import PasswordReset from "./screens/Profile/SettingsScreen/PasswordReset";
-import EmailNotifications from "./screens/Profile/Notifications/EmailNotifications";
-import Notifications from "./screens/Profile/Notifications/Notifications";
-import PushNotifications from "./screens/Profile/Notifications/PushNotifications";
-// import AsyncStorage from "@react-native-async-storage/async-storage";
-// import { useEffect, useState } from "react";
+import OnBoardingScreens from "./StackHandlers/OnboardingScreens";
+import AuthScreens from "./StackHandlers/AuthScreens";
+import ProfileScreens from "./StackHandlers/ProfileScreens";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useLayoutEffect, useState } from "react";
+import * as SplashScreen from 'expo-splash-screen';
 
 const Stack = createNativeStackNavigator();
 
-function App() {
-  // const [isFirstLaunch, setIsFirstLaunch] = useState(true);
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
-  // useEffect(() => {
-  //   AsyncStorage.getItem("isFirstLaunch").then((value) => {
-  //     if (value === null) {
-  //       AsyncStorage.setItem("isFirstLaunch", "true");
-  //       setIsFirstLaunch(false);
-  //     } else {
-  //       setIsFirstLaunch(true);
-  //     }
-  //   });
-  // }, []);
+function App() {
+  const [isLoading,setIsLoading] = useState(true);
+  const [isFirstLaunch, setIsFirstLaunch] = useState(false);
+
+  useLayoutEffect(() => {
+   
+    // AsyncStorage.removeItem("isFirstLaunch").then(()=>{
+      AsyncStorage.getItem("isFirstLaunch").then(async (value) => {
+        
+        if (value === null) {
+          setIsFirstLaunch(true);
+          AsyncStorage.setItem("isFirstLaunch", "true");
+        
+        } else {
+          setIsFirstLaunch(false);
+          
+        }
+
+        // Set the Loading State to false 
+          setIsLoading(false); 
+          
+          // Remove the SplashScreen 
+          await SplashScreen.hideAsync();
+
+      });
+
+      
+
+    // });
+
+   
+  }, []);
+
+
+
+  if(isLoading) return null;
 
   return (
-    <NavigationContainer>
+    !isLoading && <NavigationContainer>
       <Stack.Navigator>
-
-        {/* SIGN IN SCREEN IDLE FOR NOW */}
-
-
-        {/* <Stack.Screen
-          options={{ headerShown: false }}
-          name="signin"
-          component={SignIn}
-        /> */}
-        {/* <Stack.Screen
-          options={{ headerShown: false }}
-          name="home"
-          component={Home}
-        /> */}
-
-        {/* MENU SCREEN IDLE FOR NOW  */}
-
-        {/* <Stack.Screen
-          options={{ headerShown: false }}
-          name="menu"
-          component={Menu}
-        /> */}
-
         {/* ON BOARDING AND SIGNUP  */}
+        {isFirstLaunch && OnBoardingScreens(Stack)}
 
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="accountselection"
-          component={AccountSelectionScreen}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="artisanonboarding"
-          component={ArtisanOnBoardingScreen}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="clientonboarding"
-          component={ClientOnBoardingScreen}
-        />
+        {/* AUTH SCREENS  */}
+        {AuthScreens(Stack)}
 
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="signin"
-          component={SignIn}
-        />
+        {/* PROFILE SCREENS FOR ARTISIANS */}
 
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="home"
-          component={Home}
-        />
-
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="signup"
-          component={SignUp}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="verifyphonenumber"
-          component={VerifyPhoneNumber}
-        />
-
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="success"
-          component={SuccessScreen}
-        />
-
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="selectId"
-          component={SelectID}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="idform"
-          component={IDForm}
-        />
-
-        {/* Profile Screen SetUp  */}
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Profile",
-          }}
-          name="ArtisianProfile"
-          component={ArtisianProfile}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Personal information",
-          }}
-          name="personalInfo"
-          component={PersonalInfo}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Refer and Earn!",
-          }}
-          name="referandearn"
-          component={ReferAndEarn}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Settings",
-          }}
-          name="settings"
-          component={Settings}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Notifications",
-          }}
-          name="notifications"
-          component={Notifications}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Security",
-          }}
-          name="security"
-          component={Security}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Push Notifications",
-          }}
-          name="pushNotifications"
-          component={PushNotifications}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Email Notifications",
-          }}
-          name="emailNotifications"
-          component={EmailNotifications}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Language",
-          }}
-          name="language"
-          component={Language}
-        />
-
-        <Stack.Screen
-          options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#F2F2F2",
-            },
-            headerTitle: "Password Reset",
-          }}
-          name="passwordreset"
-          component={PasswordReset}
-        />
+        {ProfileScreens(Stack)}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -2,7 +2,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
 } from "react-native";
 import { COLORS } from "../../constants";
 import PromptUser from "../../components/ui/PromptUser";
