@@ -76,6 +76,7 @@ const Menu = ({ showModal, closeModalHandler }) => {
       title: "Wallet",
       handler: () => {
         console.log("clicked");
+        navigation.navigate('Wallet Header');
       },
     },
     {

@@ -8,7 +8,9 @@ export const COLORS = {
     titleColor : "#221b38",
     dotColor: "grey",
     selectionText:"#221B38",
-    primaryColorText:"#8C44EE"
+    primaryColorText:"#8C44EE",
+    walletHeader: '#F1E8FD',
+    cardContainerColor: '#FAF9FD'
 }
 
 

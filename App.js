@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import OnBoardingScreens from "./StackHandlers/OnboardingScreens";
 import AuthScreens from "./StackHandlers/AuthScreens";
 import ProfileScreens from "./StackHandlers/ProfileScreens";
+import WalletScreens from "./StackHandlers/WalletScreens";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useLayoutEffect, useState } from "react";
 import * as SplashScreen from 'expo-splash-screen';
@@ -61,6 +62,8 @@ function App() {
         {/* PROFILE SCREENS FOR ARTISIANS */}
 
         {ProfileScreens(Stack)}
+
+        {WalletScreens(Stack)}
       </Stack.Navigator>
     </NavigationContainer>
   );

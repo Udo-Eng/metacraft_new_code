@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primaryColor,
     backgroundColor: COLORS.primaryColor,
     borderRadius: 4,
+    width: '100%'
   },
   buttonText: {
     color: COLORS.backgroundColor,
