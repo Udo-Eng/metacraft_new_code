@@ -12,7 +12,7 @@ const Processed = () => {
     useEffect(()=> {
         setTimeout(() => {
             setTitle("Funding processed");
-            setNote("Your withdrawal has been processed and your funds will be sent to you");
+            setNote("Your wallet has been funded");
             setImage(require('../../assets/fundWallet/checked.png'))
         }, 3000);
     })
@@ -22,8 +22,7 @@ const Processed = () => {
         title={title}
         note={note}
         image={image}
-      ></ProcessedPage>
-      <PrimaryButton>Back to home</PrimaryButton>
+      />
     </View>
   );
 };

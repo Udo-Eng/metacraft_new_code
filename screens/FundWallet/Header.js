@@ -76,5 +76,6 @@ const styles = StyleSheet.create({
     width: 69,
     color: "white",
     textAlign: "center",
+    lineHeight: 18
   },
 });

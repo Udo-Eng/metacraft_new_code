@@ -1,4 +1,5 @@
 import { View, Text, Image, StyleSheet } from "react-native"
+import PrimaryButton from "../ui/PrimaryButton"
 
 const ProcessedPage = ({title, note, image}) => {
   return (
@@ -6,6 +7,7 @@ const ProcessedPage = ({title, note, image}) => {
         <Text style={styles.title}>{title}</Text>
         <Image source={image} />
         <Text style={styles.note}>{note}</Text>
+        <PrimaryButton>Back to home</PrimaryButton>
     </View>
   )
 }

@@ -1,3 +1,4 @@
+import { COLORS } from "../constants";
 import AddNewCard from "../screens/FundWallet/AddNewCard";
 import DebitCards from "../screens/FundWallet/DebitCards";
 import FundAccount from "../screens/FundWallet/FundAccount";
@@ -17,12 +18,12 @@ const WalletScreens = (Stack) => {
         component={Header}
       />
       <Stack.Screen
-        options={{ title: 'Wallet', headerTintStyle: {color: 'green'} }}
+        options={{ title: 'Wallet', headerTintColor: COLORS.selectionText }}
         name="Wallet"
         component={Wallet}
       />
       <Stack.Screen
-        options={{ title: 'Debit Cards' }}
+        options={{ title: 'Debit Cards', headerTintColor: COLORS.selectionText }}
         name="Debit Cards"
         component={DebitCards}
       />
@@ -37,7 +38,7 @@ const WalletScreens = (Stack) => {
         component={FundAccount}
       />
       <Stack.Screen
-        options={{ title: 'Processed'}}
+        options={{ headerShown: false}}
         name="Processed"
         component={Processed}
       />
