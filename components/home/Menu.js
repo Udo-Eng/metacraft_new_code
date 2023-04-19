@@ -36,7 +36,7 @@ const Menu = ({ showModal, closeModalHandler }) => {
   //   { top: showModal ? 0 : SIZES.height },
   // ];
 
-  const modalConatinerStyles = [
+  const modalContainerStyles = [
     styles.bottomSheetModalContainer,
     { top: showModal ? SIZES.height / 2 : SIZES.height },
   ];
@@ -91,7 +91,7 @@ const Menu = ({ showModal, closeModalHandler }) => {
 
   return (
  
-      <View style={modalConatinerStyles}>
+      <View style={modalContainerStyles}>
         <View style={styles.ratingContainer}>
           <Text
             style={[styles.rating, { color: "#221B38" }, styles.marginRight]}

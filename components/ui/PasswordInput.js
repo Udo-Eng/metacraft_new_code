@@ -1,5 +1,9 @@
-import { TextInput, View, Text, StyleSheet } from "react-native";
+import { TextInput, View, Text, StyleSheet ,Pressable} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import {useState}  from 'react';
+import {COLORS}  from "../../constants"
+
+
 
 const PasswordInput = ({
   label,
@@ -8,6 +12,9 @@ const PasswordInput = ({
   inputStyle,
   invalid,
 }) => {
+
+  // Set all the default styles for the application 
+
   const inputLabelStyle = [
     styles.inputLabel,
     LabelStyle,
@@ -24,13 +31,45 @@ const PasswordInput = ({
     invalid ? styles.inputError : null,
   ];
 
+
+   //register  state to toggle visible eye on or off
+   const [displayPassword, setDisplayPassword] = useState(false);
+
+ 
+   const toggleDisplayPasswordHandler = () => {
+     setDisplayPassword((prevState) => !prevState);
+   };
+ 
+   // function to  hide  password  and display eye-off icon
+   function displayEyeOff() {
+     return (
+       <Pressable onPress={toggleDisplayPasswordHandler}>
+         <Ionicons name="eye-off" size={24} color={COLORS.darkBlue} />
+       </Pressable>
+     );
+   }
+ 
+   // function to display off eye
+   function displayEye() {
+     return (
+       <Pressable onPress={toggleDisplayPasswordHandler}>
+         <Ionicons name="eye" size={24}  color={COLORS.darkBlue} />
+       </Pressable>
+     );
+   }
+ 
+   let eyeIcon = displayPassword ?  displayEyeOff() :  displayEye();
+
+
+
   return (
     <View style={styles.inputOuterContainer}>
       {/* PASSWORD INPUT*/}
       <Text style={inputLabelStyle}>{label ? label : "Password"}</Text>
       <View style={defaultContainerStyle}>
-        <TextInput style={defaultInputStyle} {...textInputConfig} cursorColor="#000000" secureTextEntry={true}/>
-        <Ionicons name="ios-eye-outline" size={24} color="grey" />
+        <TextInput style={defaultInputStyle} {...textInputConfig} cursorColor="#000000" secureTextEntry={!displayPassword}/>
+        {eyeIcon}
+        {/* <Ionicons name="ios-eye-outline" size={24} color="grey" /> */}
       </View>
     </View>
   );
@@ -39,7 +78,7 @@ const PasswordInput = ({
 const styles = StyleSheet.create({
   inputOuterContainer: {
     width: "100%",
-    marginTop: 26,
+    marginTop: 20,
   },
   inputContainer: {
     borderColor: "#E0E0E0",

@@ -7,6 +7,12 @@ import {
   SafeAreaView,
 } from "react-native";
 import { COLORS } from "../../constants";
+import CardIcon from "../../assets/fundWallet/NewFundWalletSvg/fundwallet/Card.svg";
+import TransferIcon from "../../assets/fundWallet/NewFundWalletSvg/fundwallet/Transfer.svg";
+
+
+
+
 
 const FundYourWallet = ({ navigation }) => {
   return (
@@ -17,7 +23,9 @@ const FundYourWallet = ({ navigation }) => {
         </Text>
         <Pressable onPress={() => navigation.navigate("Debit Cards")}>
           <View style={styles.cardContainer}>
-            <Image />
+          <View style={styles.iconContainer}>
+            <CardIcon width={24} height={24} />
+          </View>
             <View style={styles.textContainer}>
               <Text style={styles.cardNo}>Fund wallet with debit card</Text>
             </View>
@@ -25,7 +33,9 @@ const FundYourWallet = ({ navigation }) => {
         </Pressable>
         <Pressable onPress={() => navigation.navigate("Transfer to Wallet")}>
           <View style={styles.cardContainer}>
-            <Image />
+          <View style={styles.iconContainer}>
+            <TransferIcon width={24} height={24} />
+          </View>
             <View style={styles.textContainer}>
               <Text style={styles.cardNo}>Transfer to wallet</Text>
             </View>
@@ -41,7 +51,8 @@ export default FundYourWallet;
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    padding: 16,
+    padding: 18,
+    marginTop: 22,
     backgroundColor: "#fff",
   },
   heading: {
@@ -52,15 +63,17 @@ const styles = StyleSheet.create({
     marginBottom: 24
   },
   cardContainer: {
+    flexDirection: "row",
     marginBottom: 24,
     backgroundColor: COLORS.cardContainerColor,
     width: "100%",
     paddingVertical: 16,
     paddingHorizontal: 18,
-    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: "#F2F2F2",
+  },
+  iconContainer: {
+    marginRight: 12,
   },
   cardNo: {
     color: COLORS.selectionText,

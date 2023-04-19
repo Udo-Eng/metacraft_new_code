@@ -1,24 +1,41 @@
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import { COLORS } from "../../constants";
+import CardIcon from "../../assets/fundWallet/NewFundWalletSvg/fundwallet/Card.svg";
+import AddIcon from "../../assets/fundWallet/NewFundWalletSvg/fundwallet/Add.svg";
 
 const DebitCards = ({ navigation }) => {
   const card = [];
   return (
     <View style={styles.container}>
-      <Pressable onPress={()=>navigation.navigate("Fund Account")}>
+      <Pressable onPress={() => navigation.navigate("Fund Account")}>
         <View style={styles.cardContainer}>
-          <Image />
+          <View style={styles.iconContainer}>
+            <CardIcon width={24} height={24} />
+          </View>
           <View style={styles.textContainer}>
-            <Text style={styles.cardNo}>
-              **** **** **** 1234
-            </Text>
+            <Text style={styles.cardNo}>**** **** **** 1234</Text>
             <Text style={styles.date}>Exp. 09/25</Text>
           </View>
         </View>
       </Pressable>
+
+      <Pressable onPress={() => navigation.navigate("Fund Account")}>
+        <View style={styles.cardContainer}>
+          <View style={styles.iconContainer}>
+            <CardIcon width={24} height={24} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.cardNo}>**** **** **** 1234</Text>
+            <Text style={styles.date}>Exp. 09/25</Text>
+          </View>
+        </View>
+      </Pressable>
+
       <Pressable onPress={() => navigation.navigate("Add New Card")}>
         <View style={styles.cardContainer}>
-          <Image />
+          <View style={styles.iconContainer}>
+            <AddIcon width={24} height={24} />
+          </View>
           <View style={styles.textContainer}>
             <Text style={styles.cardNo}>Add New Card</Text>
           </View>
@@ -41,10 +58,14 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingVertical: 16,
     paddingHorizontal: 18,
-    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 12,
     borderWidth: 1,
     borderColor: "#F2F2F2",
+    flexDirection: "row", 
+  },
+  iconContainer: {
+    marginRight: 12,
   },
   cardNo: {
     color: COLORS.selectionText,
@@ -57,4 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "400",
   },
+  textContainer:{
+
+  }
 });

@@ -54,14 +54,14 @@ function App() {
     !isLoading && <NavigationContainer>
       <Stack.Navigator>
         {/* ON BOARDING AND SIGNUP  */}
-        {isFirstLaunch && OnBoardingScreens(Stack)}
+        {/* {isFirstLaunch && OnBoardingScreens(Stack)} */}
 
         {/* AUTH SCREENS  */}
-        {AuthScreens(Stack)}
+        {/* {AuthScreens(Stack)} */}
 
         {/* PROFILE SCREENS FOR ARTISIANS */}
 
-        {ProfileScreens(Stack)}
+        {/* {ProfileScreens(Stack)} */}
 
         {WalletScreens(Stack)}
       </Stack.Navigator>

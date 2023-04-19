@@ -12,7 +12,7 @@ const TransferToWallet = ({ navigation }) => {
           style={styles.input}
         />
       </View>
-      <View style={styles.cardContainer, {marginBottom: 40}}>
+      <View style={[styles.cardContainer, {marginBottom: 40}]}>
         <Text style={styles.title}>Account Number</Text>
         <TextInput
           style={styles.input}

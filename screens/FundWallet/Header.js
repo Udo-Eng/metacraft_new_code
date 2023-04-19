@@ -16,11 +16,12 @@ const Header = ({ navigation }) => {
         <Text style={styles.amount}>N16,800</Text>
         <Text style={styles.text}>Current Balance</Text>
         <View style={styles.options}>
-          {walletOptions.map((option) => {
+          {walletOptions.map((option,index) => {
             return (
-              <View style={styles.optionContainer}>
+              <View key={index} style={styles.optionContainer}>
                 <View style={styles.imgContainer}>
-                  <Image source={option.image} />
+                  {/* <Image source={option.image} /> */}
+                  {option.icon()}
                 </View>
                 <Pressable onPress={() => navigation.navigate(option.link)}>
                   <Text style={styles.optionText}>{option.text}</Text>
@@ -41,8 +42,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primaryColor,
     width: SIZES.width,
     padding: 16,
+    paddingTop: 23,
     height: 213,
-    // color: 'white'
+    borderBottomRightRadius: 25,
+    borderBottomLeftRadius: 25,
+    // marginTop:23,
   },
   amount: {
     fontSize: 24,

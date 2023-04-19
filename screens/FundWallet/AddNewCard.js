@@ -11,13 +11,18 @@ import PrimaryButton from "../../components/ui/PrimaryButton";
 import { COLORS } from "../../constants";
 
 const AddNewCard = ({ navigation }) => {
+
   const [cardNo, setCardNo] = useState("");
   const [date, setDate] = useState("");
   const [cvv, setCvv] = useState("");
+
+
   const handleSubmit = (e) => {
     return cardNo, date, cvv, navigation.navigate("Debit Cards");
     // console.log('YES')
   };
+
+
   return (
     <View style={styles.container}>
       <View style={styles.cardContainer}>
@@ -30,6 +35,8 @@ const AddNewCard = ({ navigation }) => {
           placeholder="xxxx xxxx xxxx xxxx"
         />
       </View>
+
+
 
       <View style={styles.flexContainer}>
         <View style={(styles.cardContainer, { width: "45%" })}>

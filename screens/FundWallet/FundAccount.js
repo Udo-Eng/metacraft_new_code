@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import PrimaryButton from "../../components/ui/PrimaryButton";
+import PasswordInput from "../../components/ui/PasswordInput";
 import { COLORS } from "../../constants";
 
 const FundAccount = ({ navigation }) => {
@@ -19,10 +20,10 @@ const FundAccount = ({ navigation }) => {
           style={styles.input}
         />
       </View>
-      <View style={styles.cardContainer, {marginBottom: 40}}>
-        <Text style={styles.title}>Enter your Metacraft Password</Text>
-        <TextInput
-          style={styles.input}
+      <View style={[styles.cardContainer, {marginBottom: 40}]}>
+        <PasswordInput 
+        label="Enter your Metacraft Password"
+        LabelStyle={{color: "#221B38",opacity: 1}}
         />
       </View>
       <PrimaryButton onPress={() => navigation.navigate("Processed")}>

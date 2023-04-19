@@ -1,16 +1,26 @@
+import BankIcon from "../assets/fundWallet/NewFundWalletSvg/WalletHeader/bank.svg";
+import CardFundingIcon from "../assets/fundWallet/NewFundWalletSvg/WalletHeader/cardFunding.svg";
+import WalletTransferIcon from "../assets/fundWallet/NewFundWalletSvg/WalletHeader/walletTransfer.svg";
+
+
+
+
 export const walletOptions = [
   {
     image: require("../assets/fundWallet/transfer_1.png"),
+    icon: () => <WalletTransferIcon width={48} height={48}  /> ,
     text: "Transfer to wallet",
     link: 'Wallet'
   },
   {
     image: require("../assets/fundWallet/withdraw_1.png"),
+    icon: () => <CardFundingIcon width={48} height={48}  /> ,
     text: "Fund wallet with card",
     link: 'Fund Your Wallet'
   },
   {
-    image: require("../assets/fundWallet/withdraw_1.png"),
+    image: require("../assets/fundWallet/bank.png"),
+    icon: () => <BankIcon width={48} height={48}  /> ,
     text: "Withdraw to bank",
     link: 'Withdraw'
   },

@@ -20,7 +20,7 @@ const Wallet = ({ navigation }) => {
         <View style={styles.headerContainer}>
           <View style={{ textAlign: "center" }}>
             <Text style={styles.amount}>N16,800</Text>
-            <Text style={styles.text}>Curent Blance</Text>
+            <Text style={styles.text}>Current Blance</Text>
           </View>
           <View style={styles.btn}>
             <Pressable onPress={() => navigation.navigate("Fund Your Wallet")}>
