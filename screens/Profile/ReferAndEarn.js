@@ -1,6 +1,8 @@
 import { View, Text, Image,StyleSheet,TextInput } from "react-native";
 import React from "react";
 import PrimaryButton from "../../components/ui/PrimaryButton";
+import ReferAndEarnIcon  from "../../assets/ReferAndEarn.svg";
+import CopyIcon  from "../../assets/CopyIcon.svg";
 
 const ReferAndEarn = ({navigation}) => {
   function onShareHandler() {
@@ -9,7 +11,9 @@ const ReferAndEarn = ({navigation}) => {
 
   return (
     <View style={styles.screen}>
-      <Image source={require("../../assets/Gift.png")} style={styles.image} />
+      <View style={styles.image}>
+      <ReferAndEarnIcon width={100} height={100} />
+      </View>
       <Text style={styles.title}>Give N100 & Get N200</Text>
       <Text style={styles.tip}>
         Get N200 in your wallet when someone signs up using your referral code
@@ -27,7 +31,8 @@ const ReferAndEarn = ({navigation}) => {
             placeholderTextColor={"#221B38"}
             cursorColor="#000000"
           />
-          <Image source={require("../../assets/copyImage.png")} style={{width: 24, height: 24}}/>
+          {/* <Image source={require("../../assets/copyImage.png")} style={{width: 24, height: 24}}/> */}
+          <CopyIcon width={24} height={24} />
         </View>
       </View>
 
@@ -101,5 +106,7 @@ const styles = StyleSheet.create({
   },
   btnStyle:{
     backgroundColor: "#420D8B",
+    width: 328,
+    height: 44,
   }
 });

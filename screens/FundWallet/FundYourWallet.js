@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   Pressable,
   SafeAreaView,
@@ -9,7 +8,6 @@ import {
 import { COLORS } from "../../constants";
 import CardIcon from "../../assets/fundWallet/NewFundWalletSvg/fundwallet/Card.svg";
 import TransferIcon from "../../assets/fundWallet/NewFundWalletSvg/fundwallet/Transfer.svg";
-
 
 
 

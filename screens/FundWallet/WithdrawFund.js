@@ -6,34 +6,32 @@ import { COLORS } from "../../constants";
 const WithdrawFunds = ({ navigation }) => {
   return (
     <View style={styles.container}>
-        <View style={styles.cardContainer}>
+      <View style={styles.cardContainer}>
         <Text style={styles.title}>Enter Account Number</Text>
-        <TextInput
-          keyboardType="numeric"
-          style={styles.input}
-        />
+        <TextInput keyboardType="numeric" style={styles.input} />
       </View>
       <View style={styles.cardContainer}>
         <Text style={styles.title}>Amount</Text>
-        <TextInput
-          keyboardType="numeric"
-          style={styles.input}
-        />
+        <TextInput keyboardType="numeric" style={styles.input} />
       </View>
 
       <View style={styles.cardContainer}>
         <Text style={styles.title}>Note to Metacraft (optional)</Text>
-        <TextInput
-          style={styles.input}
+        <TextInput style={styles.input} />
+      </View>
+      <View style={[styles.cardContainer, { marginBottom: 40 }]}>
+        <PasswordInput
+          label="Enter your Metacraft Password"
+          LabelStyle={{ color: "#221B38", opacity: 1 }}
         />
       </View>
-      <View style={[styles.cardContainer, {marginBottom: 40}]}>
-        <PasswordInput 
-        label="Enter your Metacraft Password"
-        LabelStyle={{color: "#221B38",opacity: 1}}
-        />
-      </View>
-      <PrimaryButton onPress={() => navigation.navigate("Processed")}>
+      <PrimaryButton
+        onPress={() =>
+          navigation.navigate("Processed", {
+            action: "withdraw",
+          })
+        }
+      >
         Withdraw Funds
       </PrimaryButton>
     </View>

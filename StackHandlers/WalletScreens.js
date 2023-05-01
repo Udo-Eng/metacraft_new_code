@@ -20,8 +20,6 @@ const WalletScreens = (Stack) => {
         component={Header}
       /> */}
 
-{/*     
-      
 
       <Stack.Screen
         options={{
@@ -32,23 +30,23 @@ const WalletScreens = (Stack) => {
         }}
         name="Wallet"
         component={Wallet}
-      /> */}
+      />
 
 
-      {/* <Stack.Screen
+      <Stack.Screen
         options={{
           title: "Debit Cards",
           headerTintColor: COLORS.selectionText,
         }}
         name="Debit Cards"
         component={DebitCards}
-      /> */}
+      />
 
-      {/* <Stack.Screen
+      <Stack.Screen
         options={{ title: "Add New Card" }}
         name="Add New Card"
         component={AddNewCard}
-      /> */}
+      />
 
       <Stack.Screen
         options={{ title: "Fund Account" }}
@@ -64,25 +62,25 @@ const WalletScreens = (Stack) => {
       />
 
 
-      {/* <Stack.Screen
-        options={{ title: "Withdraw" }}
+      <Stack.Screen
+        options={{ title: "Withdraw Funds" }}
         name="Withdraw"
         component={WithdrawFunds}
-      /> */}
+      />
 
-    {/* 
+    
       <Stack.Screen
         options={{ title: "Transfer to Wallet" }}
         name="Transfer to Wallet"
         component={TransferToWallet}
-      /> */}
+      />
 
-{/* 
+
       <Stack.Screen
         options={{ headerShown: false }}
         name="Fund Your Wallet"
         component={FundYourWallet}
-      /> */}
+      />
 
     <Stack.Screen
       options={{

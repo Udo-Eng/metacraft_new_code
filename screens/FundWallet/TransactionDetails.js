@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Image } from "react-native";
 // This is a transaction details component
 
 const TransactionDetails = ({ transaction }) => {
+
   transaction = {
     description: "Funds Transfer(009221283)",
     date: "19 September 2022",
@@ -23,7 +24,6 @@ const TransactionDetails = ({ transaction }) => {
       </View>
 
       {/* The Amount container  */}
-
       <Text style={styles.amount}>{transaction.amount}</Text>
       <View style={styles.statusContainer}>
         <Text style={styles.statusLabel}>Status</Text>
@@ -36,6 +36,8 @@ const TransactionDetails = ({ transaction }) => {
       </View>
     </View>
   );
+
+  
 };
 
 const styles = StyleSheet.create({

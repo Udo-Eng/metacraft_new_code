@@ -18,8 +18,11 @@ const AddNewCard = ({ navigation }) => {
 
 
   const handleSubmit = (e) => {
-    return cardNo, date, cvv, navigation.navigate("Debit Cards");
-    // console.log('YES')
+    return  navigation.navigate("Debit Cards",{
+      cardNo,
+      date,
+      cvv,
+    });
   };
 
 

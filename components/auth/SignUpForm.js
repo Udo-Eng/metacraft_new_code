@@ -19,7 +19,8 @@ function formattedPhoneNumber(phoneNumber){
     return `+234${phoneNumber.slice(1)}`;
 }
 
-//   SIGNUP FROM WITH STATE UI AND LOGIC
+//   SIGNUP FORM WITH STATE UI AND LOGIC
+
 const SignUpForm = () => {
   
   const navigation = useNavigation();
@@ -96,8 +97,7 @@ const SignUpForm = () => {
       };
     });
 
-    // Show feedback if any input is isValid
-
+    // Show feedback if any input is inValid
     if (
       !isFirstNameValid ||
       !isLastNameValid ||
@@ -118,12 +118,10 @@ const SignUpForm = () => {
     };
 
     // Testing the User Data
-  
 
 
     // console.log(userData); 
     
-  
     
     // console.log("Sucessfully sign up your account Thanks");
 
@@ -140,7 +138,11 @@ const SignUpForm = () => {
     navigation.replace("verifyphonenumber");
     
     // Clear all the inputs states  
+
     clearUserInputs();
+
+
+
   };
 
   return (

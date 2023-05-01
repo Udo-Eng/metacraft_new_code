@@ -11,10 +11,6 @@ import { useNavigation } from "@react-navigation/native";
 
 
 const NavLinkComponent = ({ item }) => {
-
-
-
-
   return (
     <View style={styles.navContainer}>
       {/* DISPLAY ICONS */}
@@ -31,26 +27,14 @@ const NavLinkComponent = ({ item }) => {
 
 const Menu = ({ showModal, closeModalHandler }) => {
 
-  // const backdropStyles = [
-  //   styles.backDrop,
-  //   { top: showModal ? 0 : SIZES.height },
-  // ];
 
   const modalContainerStyles = [
     styles.bottomSheetModalContainer,
     { top: showModal ? SIZES.height / 2 : SIZES.height },
   ];
 
-  // const BackDrop = () => {
-  //   return (
-  //     <Pressable onPress={closeModalHandler}>
-  //       <View styles={backdropStyles}></View>
-  //     </Pressable>
-  //   );
-  // };
 
   const navigation = useNavigation();
-
 
 
   const navLinkData = [
@@ -58,7 +42,6 @@ const Menu = ({ showModal, closeModalHandler }) => {
       icon: () => <HomeIcon width={24} height={24} />,
       title: "Home",
       handler: () => {
-        console.log("clicked");
         closeModalHandler();
         navigation.navigate("home");
       },
@@ -67,20 +50,19 @@ const Menu = ({ showModal, closeModalHandler }) => {
       icon: () => <ProfileIcon width={24} height={24} />,
       title: "Profile",
       handler: () => {
-        console.log("clicked");
+       
         navigation.navigate("ArtisianProfile");
       },
     },
     {
-      icon: () => <UtilIcon width={24} height={24} />,
+      icon: () => <WalletIcon width={24} height={24} />,
       title: "Wallet",
       handler: () => {
-        console.log("clicked");
-        navigation.navigate('Wallet Header');
+        navigation.navigate('Wallet');
       },
     },
     {
-      icon: () => <WalletIcon width={24} height={24} />,
+      icon: () => <UtilIcon width={24} height={24} />,
       title: "Request",
       handler: () => {
         console.log("clicked");
@@ -108,6 +90,8 @@ const Menu = ({ showModal, closeModalHandler }) => {
             temporarily suspended
           </Text>
         </View>
+
+        {/* NAVIGATION LINKS  */}
         {navLinkData.map((item,index) => (
           <NavLinkComponent key={index} item={item} />
         ))}

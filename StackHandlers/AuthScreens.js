@@ -5,6 +5,7 @@ import SuccessScreen from "../screens/Auth/Success";
 import VerifyPhoneNumber from "../screens/Auth/VerifyPhoneNumber";
 
 const AuthScreens = (Stack) => {
+
   return (
     <>
       <Stack.Screen
@@ -18,6 +19,8 @@ const AuthScreens = (Stack) => {
         name="signup"
         component={SignUp}
       />
+
+
       <Stack.Screen
         options={{ headerShown: false }}
         name="verifyphonenumber"
@@ -30,6 +33,7 @@ const AuthScreens = (Stack) => {
         component={SuccessScreen}
       />
     </>
+
   );
 };
 

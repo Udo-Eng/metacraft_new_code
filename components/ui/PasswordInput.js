@@ -40,11 +40,12 @@ const PasswordInput = ({
      setDisplayPassword((prevState) => !prevState);
    };
  
+   
    // function to  hide  password  and display eye-off icon
    function displayEyeOff() {
      return (
        <Pressable onPress={toggleDisplayPasswordHandler}>
-         <Ionicons name="eye-off" size={24} color={COLORS.darkBlue} />
+         <Ionicons name="eye-off" size={24} color={COLORS.darkBlue} style={styles.iconOpacity}/>
        </Pressable>
      );
    }
@@ -53,13 +54,12 @@ const PasswordInput = ({
    function displayEye() {
      return (
        <Pressable onPress={toggleDisplayPasswordHandler}>
-         <Ionicons name="eye" size={24}  color={COLORS.darkBlue} />
+         <Ionicons name="eye" size={24}  color={COLORS.darkBlue} style={styles.iconOpacity} />
        </Pressable>
      );
    }
  
    let eyeIcon = displayPassword ?  displayEyeOff() :  displayEye();
-
 
 
   return (
@@ -104,5 +104,10 @@ const styles = StyleSheet.create({
   labelError: {
     color: "#a31717",
   },
+  iconOpacity: {
+    opacity: 0.6,
+  },
 });
+
+
 export default PasswordInput;

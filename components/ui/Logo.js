@@ -1,10 +1,12 @@
-import { View,Image,StyleSheet} from 'react-native'
-import React from 'react'
+import { View,StyleSheet} from 'react-native';
+import React from 'react';
+import LogoIcon from "../../assets/Logo.svg";
 
 const Logo = () => {
   return (
     <View style={styles.logoContainer}>
-        <Image source={require("../../assets/word.png")} />
+        {/* <Image source={require("../../assets/word.png")} /> */}
+        <LogoIcon  width={135}  height={30} />
       </View>
   )
 }
@@ -16,6 +18,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
       },
-})
+});
 
 export default Logo;

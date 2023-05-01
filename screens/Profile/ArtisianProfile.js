@@ -1,45 +1,51 @@
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import React from "react";
-// import { AntDesign } from "@expo/vector-icons";
-// import {COLORS} from "../../constants";
+// IMPORT ICONS FORM USER PROFILE
+import PersonIcon from "../../assets/NavIcons/Person.svg";
+import GiftIcon from "../../assets/NavIcons/Gift.svg";
+import IDIcon from "../../assets/NavIcons/ID.svg";
+import GearIcon from "../../assets/NavIcons/Gear.svg";
+import HelpAndSupport from "../../assets/NavIcons/HelpAndSupport.svg";
 import StatusButton from "../../components/Profile/StatusButton";
-import NavLinkImage from "../../components/Profile/NavLinkImage";
+import NavLinkComponent from "../../components/Profile/NavLinkComponent";
 import ProfileImage from "../../components/Profile/ProfileImage";
+import ExitIcon from "../../assets/NavIcons/Exit.svg";
 
 const ArtisianProfile = ({ navigation }) => {
   const navLinksData = [
     {
       text: "Personal Information",
-      icon: require("../../assets/NavIcons/Person.png"),
+      icon: () => <PersonIcon width={40} height={40} />,
       handler: function () {
         navigation.navigate("personalInfo");
       },
     },
     {
       text: "Refer and Earn!",
-      icon: require("../../assets/NavIcons/Gift.png"),
+      icon: () => <GiftIcon width={40} height={40} />,
       handler: function () {
         navigation.navigate("referandearn");
       },
     },
     {
       text: "ID Verification",
-      icon: require("../../assets/NavIcons/ID.png"),
+      icon: () => <IDIcon width={40} height={40} />,
       handler: function () {
         navigation.navigate("selectId");
       },
     },
     {
       text: "Settings",
-      icon: require("../../assets/NavIcons/Gear.png"),
+      icon: () => <GearIcon width={40} height={40} />,
       handler: function () {
         navigation.navigate("settings");
       },
     },
     {
-      text: "Wallet",
-      icon: require("../../assets/NavIcons/Help.png"),
+      text: "Help and Support",
+      icon: () => <HelpAndSupport width={40} height={40} />,
       handler: function () {
+        // TODO LATER IMPLEMENT THE HELP AND SUPPORT
         navigation.navigate("ArtisianProfile");
       },
     },
@@ -54,9 +60,9 @@ const ArtisianProfile = ({ navigation }) => {
       </Text>
       {navLinksData.map((link, index) => {
         return (
-          <NavLinkImage
+          <NavLinkComponent
             key={index}
-            iconPath={link.icon}
+            icon={link.icon}
             linkText={link.text}
             onPress={link.handler}
             StatusButton={index === 2 ? StatusButton : null}
@@ -64,12 +70,13 @@ const ArtisianProfile = ({ navigation }) => {
         );
       })}
 
-      <Pressable onPress={() => { navigation.navigate("signin")}}>
+      <Pressable
+        onPress={() => {
+          navigation.navigate("signin");
+        }}
+      >
         <View style={styles.signOutContainer}>
-          <Image
-            style={styles.imageIcon}
-            source={require("../../assets/NavIcons/Exit.png")}
-          />
+          <ExitIcon />
           <Text style={styles.signOutText}>Sign out</Text>
         </View>
       </Pressable>
@@ -108,11 +115,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 18,
   },
-  imageIcon: {
-    width: 40,
-    height: 40,
-    marginRight: 16,
-  },
+
   signOutContainer: {
     marginLeft: 16,
     padding: 12,
@@ -124,6 +127,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   signOutText: {
+    marginLeft: 16,
     color: "#E02D3C",
     fontStyle: "normal",
     fontWeight: "300",

@@ -2,7 +2,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
   Pressable,
   SafeAreaView,
 } from "react-native";
@@ -20,7 +19,6 @@ const Header = ({ navigation }) => {
             return (
               <View key={index} style={styles.optionContainer}>
                 <View style={styles.imgContainer}>
-                  {/* <Image source={option.image} /> */}
                   {option.icon()}
                 </View>
                 <Pressable onPress={() => navigation.navigate(option.link)}>

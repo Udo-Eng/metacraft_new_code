@@ -2,8 +2,29 @@ import { View, Text, StyleSheet, TextInput } from "react-native";
 import PrimaryButton from "../../components/ui/PrimaryButton";
 import PasswordInput from "../../components/ui/PasswordInput";
 import { COLORS } from "../../constants";
+import { useIsFocused } from "@react-navigation/native";
 
-const FundAccount = ({ navigation }) => {
+const FundAccount = ({ navigation,route }) => {
+
+  let isFocused = useIsFocused();
+
+ function handleFormSubmit (){
+
+  if(isFocused){
+    let card = route.params.card;
+  }
+
+  //send a funding request to the backend with the users details 
+
+  // Navigate to the processed page
+  navigation.navigate("Processed",{
+    action:"fundaccount"
+  });
+
+
+
+}
+
   return (
     <View style={styles.container}>
       <View style={styles.cardContainer}>
@@ -26,7 +47,7 @@ const FundAccount = ({ navigation }) => {
         LabelStyle={{color: "#221B38",opacity: 1}}
         />
       </View>
-      <PrimaryButton onPress={() => navigation.navigate("Processed")}>
+      <PrimaryButton onPress={handleFormSubmit}>
         Fund Account
       </PrimaryButton>
     </View>

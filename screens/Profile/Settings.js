@@ -2,7 +2,6 @@ import { View, Text, StyleSheet ,Pressable} from "react-native";
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-
 import NavLinkIcon from "../../components/Profile/NavLinkIcon";
 
 const Settings = ({navigation }) => {
@@ -40,7 +39,6 @@ const Settings = ({navigation }) => {
 }
 
 export default Settings;
-
 
 
 const styles = StyleSheet.create({
