@@ -1,18 +1,24 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
-const RequestList = ({ title, navHandler }) => {
+const RequestList = ({ children, title, navHandler, linkText }) => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.link} onPress={navHandler}>View all requests</Text>
+        <Text style={styles.link} onPress={navHandler}>
+          {linkText}
+        </Text>
       </View>
-      <View style={styles.innerContainer}>
-        <Text style={styles.text}>🙂</Text>
-        <Text style={styles.text}>You don’t have any</Text>
-        <Text style={styles.text}>{title.toLowerCase()}</Text>
-      </View>
+      {children ? (
+        children
+      ) : (
+        <View style={styles.innerContainer}>
+          <Text style={styles.text}>🙂</Text>
+          <Text style={styles.text}>You don’t have any</Text>
+          <Text style={styles.text}>{title.toLowerCase()}</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -28,11 +34,11 @@ const styles = StyleSheet.create({
     // borderColor: "#828282",
     marginTop: 19,
   },
-  titleContainer:{
-     flexDirection: "row",
-     justifyContent: "space-between",
-     alignItems: "center",
-     marginVertical: 8,
+  titleContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginVertical: 8,
   },
   innerContainer: {
     width: 328,
@@ -41,7 +47,7 @@ const styles = StyleSheet.create({
     borderColor: "#E0E0E0",
     borderRadius: 4,
     alignItems: "center",
-    justifyContent:"center"
+    justifyContent: "center",
   },
   link: {
     color: "#8C44EE",
@@ -52,19 +58,19 @@ const styles = StyleSheet.create({
     // fontFamily:"Be Vietnam"
     fontSize: 14,
   },
-  text:{
+  text: {
     lineHeight: 26,
     fontWeight: "300",
     fontStyle: "normal",
     // fontFamily:"Be Vietnam"
     fontSize: 16,
   },
-  title:{
+  title: {
     color: "#221B38",
     lineHeight: 26,
     fontWeight: "500",
     fontStyle: "normal",
     // fontFamily:"Be Vietnam"
     fontSize: 18,
-  }
+  },
 });

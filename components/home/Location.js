@@ -1,10 +1,10 @@
 import { View, TextInput, StyleSheet } from "react-native";
 import React from "react";
 
-const Location = () => {
+const Location = ({location}) => {
   return (
     <View style={styles.inputContainer}>
-      <TextInput value="Ibadan" cursorColor={"black"} />
+      <TextInput value={location} cursorColor={"black"} />
     </View>
   );
 };
