@@ -32,7 +32,7 @@ const Home = () => {
             />
           </View>
         </View>
-        <WalletBalance />
+        <WalletBalance walletText="Withdraw"/>
 
         {/* <RequestList /> */}
 

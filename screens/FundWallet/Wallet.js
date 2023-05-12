@@ -6,21 +6,20 @@ import {
   StyleSheet,
   SafeAreaView,
   Pressable,
-  FlatList
+  FlatList,
 } from "react-native";
 import { COLORS } from "../../constants";
 import { walletHistory } from "../../data/fundWallet";
 import WalletIcon from "../../assets/NavIcons/MenuNav/Wallet.svg";
 import HomeIcon from "../../assets/NavIcons/MenuNav/HomePage.svg";
 
-
 const Wallet = ({ navigation }) => {
   function navigateToTransactionDetails() {
     navigation.navigate("TransactionDetails");
   }
 
-  function TransactionItem({item}) {
-    
+  function TransactionItem({ item }) {
+    console.log(item.amount);
     return (
       <Pressable onPress={navigateToTransactionDetails}>
         <View style={styles.detail}>
@@ -31,7 +30,9 @@ const Wallet = ({ navigation }) => {
               <Text style={styles.date}>{item.date}</Text>
             </View>
           </View>
-          <Text>{item.amount}</Text>
+          <View style={styles.rightSection}>
+            <Text>{item.amount}</Text>
+          </View>
         </View>
       </Pressable>
     );
@@ -65,16 +66,17 @@ const Wallet = ({ navigation }) => {
         </View>
 
         {/* WALLET HISTORY SECTION */}
-        
-        
-        <Text style={styles.ListTitle}>Wallet History</Text>
-          <FlatList 
-           data={walletHistory}
-           renderItem={TransactionItem}
-           keyExtractor={(item) => item.id}
+
+        <View style={styles.listContainer}>
+          <Text style={styles.ListTitle}>Wallet History</Text>
+          <FlatList
+            data={walletHistory}
+            renderItem={TransactionItem}
+            keyExtractor={(item) => item.id}
           />
-          
-          {/* <ScrollView
+        </View>
+
+        {/* <ScrollView
             style={styles.scrollView}
             // showsVerticalScrollIndicator={false}
           >
@@ -105,12 +107,15 @@ export default Wallet;
 
 const styles = StyleSheet.create({
   container: {
+    // Adding Flex to the Container removes the FlatListand Tilte component
+    // The FlatList is not scrollable
     // flex: 1,
-    alignItems:"flex-start",
+    alignItems: "flex-start",
+    padding: 15,
     paddingTop: 16,
-    alignItems: "center",
   },
   headerContainer: {
+    flex: 2,
     backgroundColor: COLORS.walletHeader,
     alignItems: "center",
     justifyContent: "space-between",
@@ -137,6 +142,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: "100%",
   },
+  listContainer: {
+    width: "100%",
+    flex: 4,
+  },
   withDrawBtn: {
     flexDirection: "row",
     alignItems: "center",
@@ -158,25 +167,25 @@ const styles = StyleSheet.create({
     color: "#420D8B",
   },
   walletHistory: {
- 
     width: "100%",
   },
   ListTitle: {
     fontSize: 16,
     fontWeight: "600",
     marginBottom: 4,
-    textAlign: "left"
   },
   detail: {
-    flexDirection: "column",
     marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "100%",
+    width: 328,
   },
   leftSection: {
     flexDirection: "row",
+    alignItems: "center",
+  },
+  rightSection: {
     alignItems: "center",
   },
   textTitle: {
@@ -187,8 +196,4 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "400",
   },
-  // scrollView: {
-  //   marginBottom: 50,
-  //   flex: 1,
-  // },
 });

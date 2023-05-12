@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import WalletIcon from "../../assets/NavIcons/Wallet.svg";
 
-const WalletBalance = () => {
+const WalletBalance = ({walletText}) => {
   return (
     <View style={styles.container}>
       <View>
@@ -12,7 +12,7 @@ const WalletBalance = () => {
       <View style={styles.withDrawBtn}>
         {/* WALLET ICON */}
         <WalletIcon width="24" height="24" />
-        <Text style={styles.withdrawText}>Withdraw</Text>
+        <Text style={styles.withdrawText}>{walletText}</Text>
       </View>
     </View>
   );

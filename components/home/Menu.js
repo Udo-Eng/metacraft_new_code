@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   bottomSheetModalContainer: {
+    zIndex: 2,
     padding: 14,
     position: "absolute",
     backgroundColor: "#ffffff",
