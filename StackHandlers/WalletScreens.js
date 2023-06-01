@@ -8,55 +8,87 @@ import Processed from "../screens/FundWallet/Processed";
 import TransferToWallet from "../screens/FundWallet/TransferToWallet";
 import Wallet from "../screens/FundWallet/Wallet";
 import WithdrawFunds from "../screens/FundWallet/WithdrawFund";
+import TransactionDetails from "../screens/FundWallet/TransactionDetails";
 
 const WalletScreens = (Stack) => {
   return (
     <>
-      <Stack.Screen
+{/* 
+<Stack.Screen
         options={{ headerShown: false }}
         name="Wallet Header"
         component={Header}
-      />
+      /> */}
+
+
       <Stack.Screen
-        options={{ title: 'Wallet', headerTintColor: COLORS.selectionText }}
+        options={{
+          title: "Wallet",
+          headerTintColor: COLORS.selectionText,
+          headerTitleAlign: "center",
+          headerShadowVisible: false,
+        }}
         name="Wallet"
         component={Wallet}
       />
+
+
       <Stack.Screen
-        options={{ title: 'Debit Cards', headerTintColor: COLORS.selectionText }}
+        options={{
+          title: "Debit Cards",
+          headerTintColor: COLORS.selectionText,
+        }}
         name="Debit Cards"
         component={DebitCards}
       />
+
       <Stack.Screen
-        options={{ title: 'Add New Card' }}
+        options={{ title: "Add New Card" }}
         name="Add New Card"
         component={AddNewCard}
       />
+
       <Stack.Screen
-        options={{ title: 'Fund Account'}}
+        options={{ title: "Fund Account" }}
         name="Fund Account"
         component={FundAccount}
       />
+
+
       <Stack.Screen
-        options={{ headerShown: false}}
+        options={{ headerShown: false }}
         name="Processed"
         component={Processed}
       />
+
+
       <Stack.Screen
-        options={{ title: 'Withdraw'}}
+        options={{ title: "Withdraw Funds" }}
         name="Withdraw"
         component={WithdrawFunds}
       />
+
+    
       <Stack.Screen
-        options={{ title: 'Transfer to Wallet'}}
+        options={{ title: "Transfer to Wallet" }}
         name="Transfer to Wallet"
         component={TransferToWallet}
       />
+
+
       <Stack.Screen
-        options={{ headerShown: false}}
+        options={{ headerShown: false }}
         name="Fund Your Wallet"
         component={FundYourWallet}
       />
+
+    <Stack.Screen
+      options={{
+        headerShown: false}}
+        name="TransactionDetails"
+        component={TransactionDetails}
+       />
+
     </>
   );
 };

@@ -40,6 +40,7 @@ export const Provider = ({ children }) => {
     setUser(initialUserState);
 
     setIsLogin(false);
+    
   }
 
   const initialUserAuthContext = {

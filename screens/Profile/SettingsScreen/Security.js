@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import React from "react";
-import NavLinkImage from "../../../components/Profile/NavLinkImage";
+import NavLinkComponent from "../../../components/Profile/NavLinkComponent";
+import ResetIcon from "../../../assets/NavIcons/resetIcon.svg"
 
 const Security = ({navigation}) => {
   function onNavigateHandler() {
@@ -11,8 +12,8 @@ const Security = ({navigation}) => {
 
   return (
     <View style={styles.screen}>
-      <NavLinkImage
-        iconPath={require("../../../assets/NavIcons/resetIcon.png")}
+      <NavLinkComponent
+        icon={() => <ResetIcon width={40} height={40} />}
         linkText={"Password Reset"}
         onPress={onNavigateHandler}
       />

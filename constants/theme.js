@@ -10,7 +10,7 @@ export const COLORS = {
     selectionText:"#221B38",
     primaryColorText:"#8C44EE",
     walletHeader: '#F1E8FD',
-    cardContainerColor: '#FAF9FD'
+    cardContainerColor: '#FAF9FD',
 }
 
 

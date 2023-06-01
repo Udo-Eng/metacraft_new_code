@@ -2,14 +2,12 @@ import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
-const NavLinkImage = ({ iconPath, linkText, onPress, StatusButton }) => {
+const NavLinkComponent = ({ icon, linkText, onPress, StatusButton }) => {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.navLinkContainer}>
         <View style={styles.navLeft}>
-          <View style={styles.iconContainer}>
-            <Image source={iconPath} style={styles.imageIcon} />
-          </View>
+          {icon()}
           <Text style={styles.linkText}>{linkText}</Text>
         </View>
         <View style={styles.navRight}>
@@ -33,19 +31,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "#E0E0E0",
     borderBottomWidth: 1,
   },
-  iconContainer: {
-    backgroundColor: "#FAF9FD",
-    width: 40,
-    height: 40,
-    marginRight: 16,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  imageIcon: {
-    width: 24,
-    height: 24,
-    // marginRight: 16,
-  },
   statusBtn: {
     marginRight: 10,
     backgroundColor: "#BA2532",
@@ -63,6 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   linkText: {
+    marginLeft: 16,
     color: "#221B38",
     fontStyle: "normal",
     fontWeight: "300",
@@ -72,13 +58,14 @@ const styles = StyleSheet.create({
   navLeft: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   navRight: {
     alignItems: "flex-end",
     flexDirection: "row",
+    alignItems: "center",
     justifyContent: "center",
   },
 });
 
-export default NavLinkImage;
+export default NavLinkComponent;

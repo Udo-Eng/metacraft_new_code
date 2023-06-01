@@ -30,7 +30,7 @@ const SelectID = ({ navigation }) => {
         {/* IDS CONTAINER */}
         <View style={styles.IdItemsContainer}>
           {Cards.map((item, index) => {
-            return <IDItem item={item} key={index} />;
+            return <IDItem item={item} key={index} onPress={() => navigation.navigate("idform")}/>;
           })}
         </View>
       </View>

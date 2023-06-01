@@ -97,6 +97,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#E0E0E0",
     borderWidth: 1,
     borderColor: "#F1E8FD",
+    width: 328,
+    height: 44,
   },
   btnTextStyle: {
     // fontFamily: "Be Vietnam",

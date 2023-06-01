@@ -37,12 +37,12 @@ const HomeMenu = ({ closeMenu }) => {
       icon: () => <ProfileIcon width={24} height={24} />,
       title: "Profile",
       handler: () => {
-        console.log("clicked");
+       
         navigation.navigate("ArtisianProfile");
       },
     },
     {
-      icon: () => <UtilIcon width={24} height={24} />,
+      icon: () => <WalletIcon width={24} height={24} />,
       title: "Wallet",
       handler: () => {
         console.log("clicked");
@@ -50,7 +50,7 @@ const HomeMenu = ({ closeMenu }) => {
       },
     },
     {
-      icon: () => <WalletIcon width={24} height={24} />,
+      icon: () => <UtilIcon width={24} height={24} />,
       title: "Request",
       handler: () => {
         console.log("clicked");
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   bottomSheetModalContainer: {
+    zIndex: 2,
     padding: 14,
     position: "absolute",
     backgroundColor: "#ffffff",

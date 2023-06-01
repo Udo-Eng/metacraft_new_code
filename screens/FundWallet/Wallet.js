@@ -2,25 +2,50 @@ import {
   View,
   Text,
   Image,
+  ScrollView,
   StyleSheet,
   SafeAreaView,
   Pressable,
+  FlatList,
 } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
 import { COLORS } from "../../constants";
 import { walletHistory } from "../../data/fundWallet";
 import WalletIcon from "../../assets/NavIcons/MenuNav/Wallet.svg";
+import HomeIcon from "../../assets/NavIcons/MenuNav/HomePage.svg";
 
 const Wallet = ({ navigation }) => {
+  function navigateToTransactionDetails() {
+    navigation.navigate("TransactionDetails");
+  }
+
+  function TransactionItem({ item }) {
+    console.log(item.amount);
+    return (
+      <Pressable onPress={navigateToTransactionDetails}>
+        <View style={styles.detail}>
+          <View style={styles.leftSection}>
+            <Image source={item.image} />
+            <View style={{ marginLeft: 12 }}>
+              <Text style={styles.textTitle}>{item.title}</Text>
+              <Text style={styles.date}>{item.date}</Text>
+            </View>
+          </View>
+          <View style={styles.rightSection}>
+            <Text>{item.amount}</Text>
+          </View>
+        </View>
+      </Pressable>
+    );
+  }
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
         {/* HEADER SECTION */}
-
         <View style={styles.headerContainer}>
           <View style={{ textAlign: "center" }}>
             <Text style={styles.amount}>N16,800</Text>
-            <Text style={styles.text}>Curent Blance</Text>
+            <Text style={styles.text}>Current Blance</Text>
           </View>
           <View style={styles.btn}>
             <Pressable onPress={() => navigation.navigate("Fund Your Wallet")}>
@@ -30,10 +55,10 @@ const Wallet = ({ navigation }) => {
                 <Text style={styles.withdrawText}>Fund wallet</Text>
               </View>
             </Pressable>
-            <Pressable onPress={()=> navigation.navigate('Withdraw')}>
+            <Pressable onPress={() => navigation.navigate("Withdraw")}>
               <View style={styles.withDrawBtn}>
                 {/* WALLET ICON */}
-                <WalletIcon width="24" height="24" />
+                <HomeIcon width="24" height="24" />
                 <Text style={styles.withdrawText}>Withdraw</Text>
               </View>
             </Pressable>
@@ -42,25 +67,37 @@ const Wallet = ({ navigation }) => {
 
         {/* WALLET HISTORY SECTION */}
 
-        <View style={styles.walletHistory}>
-          <Text style={styles.title}>Wallet History</Text>
-          <ScrollView style={{ width: "100%" }}>
+        <View style={styles.listContainer}>
+          <Text style={styles.ListTitle}>Wallet History</Text>
+          <FlatList
+            data={walletHistory}
+            renderItem={TransactionItem}
+            keyExtractor={(item) => item.id}
+          />
+        </View>
+
+        {/* <ScrollView
+            style={styles.scrollView}
+            // showsVerticalScrollIndicator={false}
+          >
+
             {walletHistory.map((history, index) => {
               return (
-                <View key={index} style={styles.detail}>
-                  <View style={styles.leftSection}>
-                    <Image source={history.image} />
-                    <View style={{ marginLeft: 12 }}>
-                      <Text style={styles.textTitle}>{history.title}</Text>
-                      <Text style={styles.date}>{history.date}</Text>
+                <Pressable key={index} onPress={navigateToTransactionDetails}>
+                  <View style={styles.detail}>
+                    <View style={styles.leftSection}>
+                      <Image source={history.image} />
+                      <View style={{ marginLeft: 12 }}>
+                        <Text style={styles.textTitle}>{history.title}</Text>
+                        <Text style={styles.date}>{history.date}</Text>
+                      </View>
                     </View>
+                    <Text>{history.amount}</Text>
                   </View>
-                  <Text>{history.amount}</Text>
-                </View>
+                </Pressable>
               );
             })}
-          </ScrollView>
-        </View>
+          </ScrollView> */}
       </View>
     </SafeAreaView>
   );
@@ -70,9 +107,15 @@ export default Wallet;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
+    // Adding Flex to the Container removes the FlatListand Tilte component
+    // The FlatList is not scrollable
+    // flex: 1,
+    alignItems: "flex-start",
+    padding: 15,
+    paddingTop: 16,
   },
   headerContainer: {
+    flex: 2,
     backgroundColor: COLORS.walletHeader,
     alignItems: "center",
     justifyContent: "space-between",
@@ -99,6 +142,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: "100%",
   },
+  listContainer: {
+    width: "100%",
+    flex: 4,
+  },
   withDrawBtn: {
     flexDirection: "row",
     alignItems: "center",
@@ -122,21 +169,23 @@ const styles = StyleSheet.create({
   walletHistory: {
     width: "100%",
   },
-  title: {
+  ListTitle: {
     fontSize: 16,
     fontWeight: "600",
     marginBottom: 4,
   },
   detail: {
-    flexDirection: "column",
     marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "100%",
+    width: 328,
   },
   leftSection: {
     flexDirection: "row",
+    alignItems: "center",
+  },
+  rightSection: {
     alignItems: "center",
   },
   textTitle: {
