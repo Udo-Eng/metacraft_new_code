@@ -20,12 +20,7 @@ const NavLinkComponent = ({ item }) => {
   );
 };
 
-const HomeMenu = ({ showModal, closeModalHandler }) => {
-  const modalConatinerStyles = [
-    styles.bottomSheetModalContainer,
-    { top: showModal ? SIZES.height / 2 : SIZES.height },
-  ];
-
+const HomeMenu = ({ closeMenu }) => {
   const navigation = useNavigation();
 
   const navLinkData = [
@@ -34,7 +29,7 @@ const HomeMenu = ({ showModal, closeModalHandler }) => {
       title: "Home",
       handler: () => {
         console.log("clicked");
-        closeModalHandler();
+        // closeMenu();
         navigation.navigate("home");
       },
     },

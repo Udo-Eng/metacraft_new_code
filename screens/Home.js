@@ -4,7 +4,7 @@ import HomeLayout from "../components/homeLayout/HomeLayout";
 import RequestList from "../components/home/RequestList";
 import HomeMenu from "../components/home/HomeMenu";
 
-const Home = ({ closeModalHandler }) => {
+const Home = () => {
   return (
     <View style={styles.screen}>
       <HomeLayout
@@ -13,7 +13,7 @@ const Home = ({ closeModalHandler }) => {
         balance="N 0.00"
         title="Current Balance"
         note="Withdraw"
-        data={<HomeMenu closeModalHandler={closeModalHandler} />}
+        data={<HomeMenu closeMenu={closeMenu} />}
       >
         {/* <RequestList /> */}
 

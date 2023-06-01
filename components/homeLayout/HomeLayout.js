@@ -42,7 +42,7 @@ const HomeLayout = ({
       >
         {children}
       </ScrollView>
-      <Popup showModal={showMenu} closeModalHandler={closeMenu}>
+      <Popup showModal={showMenu} closeMenu={closeMenu}>
         {data}
       </Popup>
     </View>
