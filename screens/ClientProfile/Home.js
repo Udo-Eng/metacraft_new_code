@@ -1,23 +1,24 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import Location from "../../components/home/Location";
-import MenuBarLogo from "../../components/home/MenuBarLogo";
-import WalletBalance from "../../components/home/WalletBalance";
 import RequestList from "../../components/home/RequestList";
 import ServiceSelectionForm from "../../components/Requests/NormalRequests/ServiceSelectionForm";
-import Menu from "../../components/home/Menu";
+import HomeMenu from "../../components/home/HomeMenu";
+import HomeLayout from "../../components/homeLayout/HomeLayout";
+import NewRequest from "./NewRequest/NewRequest";
+// import { useNavigation } from "@react-navigation/native";
 // import Dropdown from "../../components/ui/DropDown";
 
-const Home = () => {
+const Home = ({navigation}) => {
+  // const navigation = useNavigation();
   const [showMenu, setShowMenu] = useState(false);
   const [selected, setSelected] = useState(undefined);
-//   const data = [
-//     { label: 'One', value: '1' },
-//     { label: 'Two', value: '2' },
-//     { label: 'Three', value: '3' },
-//     { label: 'Four', value: '4' },
-//     { label: 'Five', value: '5' },
-//   ];
+  //   const data = [
+  //     { label: 'One', value: '1' },
+  //     { label: 'Two', value: '2' },
+  //     { label: 'Three', value: '3' },
+  //     { label: 'Four', value: '4' },
+  //     { label: 'Five', value: '5' },
+  //   ];
 
   function displayUserMenu() {
     setShowMenu((prevState) => !prevState);
@@ -29,49 +30,52 @@ const Home = () => {
 
   return (
     <>
-    <View style={styles.screen}>
-      <View>
-        <Text style={styles.title}> Location</Text>
-        <View style={styles.row}>
-          <Location />
-          <MenuBarLogo onPress={displayUserMenu} />
-        </View>
-      </View>
-      <WalletBalance walletText="Top-Up" />
-
-      {/* <RequestList /> */}
-      <View style={styles.requestListContainer}>
-        <ScrollView
-        
-          showsVerticalScrollIndicator={false}
+      <View style={styles.screen}>
+        <HomeLayout
+          locationTitle="Current Location"
+          location="Ibadan"
+          balance="N 0.00"
+          title="Current Balance"
+          note="Top-Up"
+          data={<HomeMenu closeMenu={closeMenu} />}
         >
-          <RequestList
-            title="Ongoing requests"
-            navHandler={() => {
-              console.log("clicked");
-            }}
-          />
-          <RequestList
-            title="Upcoming requests"
-            navHandler={() => {
-              console.log("clicked");
-            }}
-          />
-          <RequestList
-            title="New requests"
-            navHandler={() => {
-              console.log("clicked");
-            }}
-          />
-          <View style={{marginTop: 10}}></View>
-        </ScrollView>
+          {/* <RequestList /> */}
+
+          <View>
+            <RequestList
+              linkText="View all requests"
+              title="Ongoing requests"
+              navHandler={() => {
+                console.log("clicked");
+              }}
+            />
+            <RequestList
+              linkText="View all requests"
+              title="Upcoming requests"
+              navHandler={() => {
+                console.log("clicked");
+              }}
+            />
+            <RequestList
+              linkText="View all requests"
+              title="New requests"
+              navHandler={() => {
+                navigation.navigate("Requests");
+              }}
+            >
+              <NewRequest />
+            </RequestList>
+            <View style={styles.padding}></View>
+          </View>
+        </HomeLayout>
       </View>
-      <Menu showModal={showMenu} closeModalHandler={closeMenu} />
-    </View>
-        {/* <Dropdown label="Select Item" data={data} onSelect={setSelected}/> */}
-      <ServiceSelectionForm  label={ selected || "Choose Service" } onSelect={setSelected}/>
+
+      {/* <Dropdown label="Select Item" data={data} onSelect={setSelected}/> */}
+      {/* <ServiceSelectionForm
+        label={selected || "Choose Service"}
+        onSelect={setSelected}
+      /> */}
     </>
-    
   );
 };
 

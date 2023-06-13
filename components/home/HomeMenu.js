@@ -29,7 +29,7 @@ const HomeMenu = ({ closeMenu }) => {
       title: "Home",
       handler: () => {
         console.log("clicked");
-        // closeMenu();
+        closeMenu();
         navigation.navigate("home");
       },
     },
@@ -37,7 +37,6 @@ const HomeMenu = ({ closeMenu }) => {
       icon: () => <ProfileIcon width={24} height={24} />,
       title: "Profile",
       handler: () => {
-       
         navigation.navigate("ArtisianProfile");
       },
     },

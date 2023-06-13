@@ -87,9 +87,7 @@ const RequestArtisianForm = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-       showsVerticalScrollIndicator={false}
-      >
+      <ScrollView showsVerticalScrollIndicator={false}>
         {/* LOCATION  */}
         <Input
           label="Update Location"
@@ -173,11 +171,16 @@ const RequestArtisianForm = () => {
         {/*CONTINUE BUTTON */}
         <PrimaryButton
           btnContainer={styles.btnContainer}
-          onPress={onSubmitHandler}
+          // onPress={onSubmitHandler}
+          onPress={() => {
+            {
+              navigation.navigate("home");
+            }
+          }}
         >
           Find Hair stylist
         </PrimaryButton>
-        <View style={{margin: 10}}></View>
+        <View style={{ margin: 10 }}></View>
       </ScrollView>
     </View>
   );

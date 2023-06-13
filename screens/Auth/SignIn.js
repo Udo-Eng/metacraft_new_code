@@ -1,37 +1,31 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-} from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { COLORS } from "../../constants";
 import PromptUser from "../../components/ui/PromptUser";
 import Logo from "../../components/ui/Logo";
 import SignInForm from "../../components/auth/SignInForm";
 
 const SignIn = ({ navigation }) => {
-
-
   return (
-      <View style={styles.scrollView}>
-        {/* SIGN IN HEADER */}
-        <Logo />
-        <Text style={styles.title}>
-          Welcome <Text style={styles.link}>Back!</Text>
-        </Text>
+    <View style={styles.scrollView}>
+      {/* SIGN IN HEADER */}
+      <Logo />
+      <Text style={styles.title}>
+        Welcome <Text style={styles.link}>Back!</Text>
+      </Text>
 
-        {/* SIGN IN FORM  */}
-        <SignInForm />
+      {/* SIGN IN FORM  */}
+      <SignInForm />
 
-        {/*Prompt the User to flow another User workflow  */}
+      {/*Prompt the User to flow another User workflow  */}
 
-        <PromptUser
-          linkText="Sign Up"
-          prompt="Don't have an account"
-          onPress={() => {
-            navigation.replace("signup");
-          }}
-        />
-      </View>
+      <PromptUser
+        linkText="Sign Up"
+        prompt="Don't have an account"
+        onPress={() => {
+          navigation.replace("signup");
+        }}
+      />
+    </View>
   );
 };
 

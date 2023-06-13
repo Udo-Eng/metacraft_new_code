@@ -38,7 +38,9 @@ const Home = () => {
             navHandler={() => {
               console.log("clicked");
             }}
-          />
+          >
+            <Text>There is a request</Text>
+          </RequestList>
           <View style={styles.padding}></View>
         </View>
       </HomeLayout>
