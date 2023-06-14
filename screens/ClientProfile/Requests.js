@@ -46,6 +46,8 @@ const Requests = ({ navigation }) => {
               onPress={() =>
                 navigation.navigate("Client Request", {
                   id: data.id,
+                  name: data.name,
+                  phone: data.phone,
                   date: data.date,
                   time: data.time,
                   images: data.images,

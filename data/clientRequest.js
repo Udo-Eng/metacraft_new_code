@@ -4,6 +4,8 @@ import Tap from "../assets/Requests/images/Tap.svg";
 export const Request = [
   {
     id: 1,
+    name: "Seun Cooker",
+    phone: "08123456789",
     title: "Replace broken tap",
     date: "02/01/22",
     time: "03:30pm",
@@ -17,6 +19,8 @@ export const Request = [
   },
   {
     id: 2,
+    name: "Peter Smith",
+    phone: "08123456789",
     title: "Replace broken tap",
     date: "05/01/22",
     time: "03:30pm",

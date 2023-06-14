@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import Date from "../../../assets/Requests/icons/Date.svg";
 import Time from "../../../assets/Requests/icons/Time.svg";
 import Location from "../../../assets/Requests/icons/Location.svg";
 import { Request } from "../../../data/clientRequest";
 
-const NewRequest = () => {
+const OngoingRequest = () => {
   return (
     <View style={styles.container}>
       {Request.map((data, index) => {
@@ -29,7 +29,7 @@ const NewRequest = () => {
             <View>
               <Pressable
                 onPress={() =>
-                  navigation.navigate("Client Request", {
+                  navigation.navigate("Request Details", {
                     id: data.id,
                     name: data.name,
                     phone: data.phone,
@@ -47,7 +47,7 @@ const NewRequest = () => {
                 <View style={styles.img}>
                   <data.img />
                   <View style={styles.imgTextContainer}>
-                    <Text style={styles.imgText}>New Request</Text>
+                    <Text style={styles.imgText}>Quote Sent</Text>
                   </View>
                 </View>
               </Pressable>
@@ -59,7 +59,7 @@ const NewRequest = () => {
   );
 };
 
-export default NewRequest;
+export default OngoingRequest;
 
 const styles = StyleSheet.create({
   container: {
@@ -107,13 +107,14 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     paddingVertical: 4,
-    paddingHorizontal: 8.2,
+    paddingLeft: 27,
+    paddingRight: 13,
     borderBottomLeftRadius: 4,
-    backgroundColor: "#f2c94c",
+    backgroundColor: "#e857eb",
   },
   imgText: {
     fontWeight: "600",
     fontSize: 11,
-    color: "#221b83",
+    color: "#fff",
   },
 });

@@ -5,10 +5,11 @@ import ServiceSelectionForm from "../../components/Requests/NormalRequests/Servi
 import HomeMenu from "../../components/home/HomeMenu";
 import HomeLayout from "../../components/homeLayout/HomeLayout";
 import NewRequest from "./NewRequest/NewRequest";
+import UpcomingRequest from "./UpcomingRequest/UpcomingRequest";
 // import { useNavigation } from "@react-navigation/native";
 // import Dropdown from "../../components/ui/DropDown";
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   // const navigation = useNavigation();
   const [showMenu, setShowMenu] = useState(false);
   const [selected, setSelected] = useState(undefined);
@@ -46,16 +47,18 @@ const Home = ({navigation}) => {
               linkText="View all requests"
               title="Ongoing requests"
               navHandler={() => {
-                console.log("clicked");
+                navigation.navigate("Requests");
               }}
             />
             <RequestList
               linkText="View all requests"
               title="Upcoming requests"
               navHandler={() => {
-                console.log("clicked");
+                navigation.navigate("Requests");
               }}
-            />
+            >
+              <UpcomingRequest />
+            </RequestList>
             <RequestList
               linkText="View all requests"
               title="New requests"

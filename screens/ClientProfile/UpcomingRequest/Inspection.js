@@ -3,7 +3,7 @@ import React from "react";
 import { ClientImage, ClientInput } from "../../../components/ui/ClientInput";
 import { useNavigation } from "@react-navigation/native";
 
-const ClientRequest = ({ route }) => {
+const Inspection = ({ route }) => {
   const navigation = useNavigation();
   const {
     id,
@@ -18,6 +18,15 @@ const ClientRequest = ({ route }) => {
   } = route.params;
   return (
     <View style={styles.container}>
+      <ClientInput
+        text="Request Status"
+        inputBorder={styles.inputBorder}
+        container={styles.inputContainer}
+      >
+        <Text style={[styles.inputText, { color: "#fff" }]}>
+          Request Accepted - Not yet started
+        </Text>
+      </ClientInput>
       <ClientInput
         text="Client's Location"
         inputBorder={styles.inputBorder}
@@ -39,31 +48,13 @@ const ClientRequest = ({ route }) => {
       >
         <Text style={styles.inputText}>{sub_service}</Text>
       </ClientInput>
-      {!images ? (
-        <ClientInput
-          text="Payment Method"
-          inputBorder={styles.inputBorder}
-          container={styles.inputContainer}
-        >
-          <Text style={styles.inputText}>{payment}</Text>
-        </ClientInput>
-      ) : (
-        <View>
-          <ClientImage text="Pictures" container={styles.inputContainer}>
-            {images}
-          </ClientImage>
-
-          <ClientInput
-            text="Date and time for repair"
-            inputBorder={styles.inputBorder}
-            container={styles.inputContainer}
-          >
-            <Text style={styles.inputText}>
-              {date} {time}
-            </Text>
-          </ClientInput>
-        </View>
-      )}
+      <ClientInput
+        text="Payment Method"
+        inputBorder={styles.inputBorder}
+        container={styles.inputContainer}
+      >
+        <Text style={styles.inputText}>{payment}</Text>
+      </ClientInput>
       <ClientInput
         text="Note"
         inputBorder={styles.inputBorder}
@@ -71,24 +62,33 @@ const ClientRequest = ({ route }) => {
       >
         <Text style={styles.inputText}>{note}</Text>
       </ClientInput>
+
       <View style={styles.btnContainer}>
+        <Pressable style={styles.btn} onPress={() => {}}>
+          <Text style={styles.btnText}>Inspection Complete</Text>
+        </Pressable>
+      </View>
+
+      <View style={[styles.btnContainer, styles.btnContainer2]}>
         <Pressable
-          style={styles.btn}
-          onPress={() =>
-            navigation.navigate("Submit Bid", {
-              address:  address ,
-              sub_service:  sub_service ,
-            })
-          }
+          style={[styles.btn, { backgroundColor: "#fff" }]}
+          onPress={() => navigation.navigate("Quote for Repair")}
         >
-          <Text style={styles.btnText}>Continue</Text>
+          <Text style={[styles.btnText, { color: "#420d8b" }]}>Give Quote</Text>
+        </Pressable>
+      </View>
+      <View>
+        <Pressable onPress={() => {}}>
+          <Text style={[styles.inputText, { color: "#221b38" }]}>
+            Cancel Request
+          </Text>
         </Pressable>
       </View>
     </View>
   );
 };
 
-export default ClientRequest;
+export default Inspection;
 
 const styles = StyleSheet.create({
   container: {
@@ -111,20 +111,24 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 68,
+    marginTop: 39,
+  },
+  btnContainer2: {
+    marginTop: 20,
   },
   btn: {
     width: "85%",
-    paddingVertical: 12,
-    borderWidth: 1,
     borderRadius: 4,
+    borderWidth: 1,
     borderColor: "#420d8b",
+    backgroundColor: "#420d8b",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    paddingVertical: 12,
   },
   btnText: {
-    color: "#420d8b",
+    color: "#f1e8fd",
     fontSize: 14,
     fontWeight: "500",
     lineHeight: 20,

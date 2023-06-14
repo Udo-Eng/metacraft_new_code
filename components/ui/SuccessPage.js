@@ -1,7 +1,7 @@
 import { View, Text, Image, Pressable, StyleSheet } from "react-native";
 import React from "react";
 
-const SuccessPage = ({ title, image, note, btnText }) => {
+const SuccessPage = ({ title, image, note, btnText, onPress }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>

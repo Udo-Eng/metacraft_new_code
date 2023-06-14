@@ -1,10 +1,16 @@
 import React from "react";
-import ClientRequest from "../screens/ClientProfile/NewRequest/ClientRequest";
 import Home from "../screens/ClientProfile/Home";
 import RequestFormScreen from "../screens/ClientProfile/RequestFormScreen";
 import Requests from "../screens/ClientProfile/Requests";
 import SubmitBid from "../screens/ClientProfile/NewRequest/SubmitBid";
 import BidSuccess from "../screens/ClientProfile/NewRequest/BidSuccess";
+import Quote from "../screens/ClientProfile/UpcomingRequest/Quote";
+import Inspection from "../screens/ClientProfile/UpcomingRequest/Inspection";
+import NewClientRequest from "../screens/ClientProfile/NewRequest/NewClientRequest";
+import UpcomingClientRequest from "../screens/ClientProfile/UpcomingRequest/UpcomingClientRequest";
+import QuoteSubmitted from "../screens/ClientProfile/UpcomingRequest/QuoteSubmitted";
+import StartJob from "../screens/ClientProfile/OngoingRequest/StartJob";
+import JobComplete from "../screens/ClientProfile/OngoingRequest/JobComplete";
 
 const ClientProfileScreens = (Stack) => {
   return (
@@ -25,7 +31,7 @@ const ClientProfileScreens = (Stack) => {
 
       {/* Request Screen */}
       <Stack.Screen name="Requests" component={Requests} />
-      <Stack.Screen name="Client Request" component={ClientRequest} />
+      <Stack.Screen name="Client Request" component={NewClientRequest} />
       <Stack.Screen name="Submit Bid" component={SubmitBid} />
       <Stack.Screen
         options={{
@@ -34,6 +40,12 @@ const ClientProfileScreens = (Stack) => {
         name="Bid Sent"
         component={BidSuccess}
       />
+      <Stack.Screen name="Request Details" component={UpcomingClientRequest} />
+      <Stack.Screen name="Inspection" component={Inspection} />
+      <Stack.Screen name="Quote for Repair" component={Quote} />
+      <Stack.Screen name="Quote Submitted" component={QuoteSubmitted} />
+      <Stack.Screen name="Start Job" component={StartJob} />
+      <Stack.Screen name="Job Complete" component={JobComplete} />
     </>
   );
 };
