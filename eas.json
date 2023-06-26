@@ -10,18 +10,18 @@
         "resourceClass": "m1-medium"
       }
     },
-    "preview": {
+    "sampleapp": {
       "distribution": "internal",
       "android": {
         "buildType": "apk"
       }
     },
-    "preview2": {
+    "sampleapp2": {
       "android": {
         "gradleCommand": ":app:assembleRelease"
       }
     },
-    "preview3": {
+    "sampleapp3": {
       "developmentClient": true
     },
     "production": {

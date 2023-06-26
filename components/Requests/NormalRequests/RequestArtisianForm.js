@@ -81,7 +81,6 @@ const RequestArtisianForm = () => {
     // navigation.replace("");
 
     // Clear all the inputs states
-
     clearUserInputs();
   };
 
