@@ -11,13 +11,13 @@ import Menu from "../../components/home/Menu";
 const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [selected, setSelected] = useState(undefined);
-//   const data = [
-//     { label: 'One', value: '1' },
-//     { label: 'Two', value: '2' },
-//     { label: 'Three', value: '3' },
-//     { label: 'Four', value: '4' },
-//     { label: 'Five', value: '5' },
-//   ];
+  //   const data = [
+  //     { label: 'One', value: '1' },
+  //     { label: 'Two', value: '2' },
+  //     { label: 'Three', value: '3' },
+  //     { label: 'Four', value: '4' },
+  //     { label: 'Five', value: '5' },
+  //   ];
 
   function displayUserMenu() {
     setShowMenu((prevState) => !prevState);
@@ -29,49 +29,42 @@ const Home = () => {
 
   return (
     <>
-    <View style={styles.screen}>
-      <View>
-        <Text style={styles.title}> Location</Text>
-        <View style={styles.row}>
-          <Location />
-          <MenuBarLogo onPress={displayUserMenu} />
+      <View style={styles.screen}>
+        <View>
+          <Text style={styles.title}> Location</Text>
+          <View style={styles.row}>
+            <Location />
+            <MenuBarLogo onPress={displayUserMenu} />
+          </View>
         </View>
-      </View>
-      <WalletBalance walletText="Top-Up" />
+        <WalletBalance walletText="Top-Up" />
 
-      {/* <RequestList /> */}
-      <View style={styles.requestListContainer}>
-        <ScrollView
-        
-          showsVerticalScrollIndicator={false}
-        >
-          <RequestList
-            title="Ongoing requests"
-            navHandler={() => {
-              console.log("clicked");
-            }}
-          />
-          <RequestList
-            title="Upcoming requests"
-            navHandler={() => {
-              console.log("clicked");
-            }}
-          />
-          <RequestList
-            title="New requests"
-            navHandler={() => {
-              console.log("clicked");
-            }}
-          />
-          <View style={{marginTop: 10}}></View>
-        </ScrollView>
+        {/* <RequestList /> */}
+        <View style={styles.requestListContainer}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <RequestList
+              title="Ongoing requests"
+              navHandler={() => {
+                console.log("clicked");
+              }}
+            />
+            <RequestList
+              title="Saved requests"
+              navHandler={() => {
+                console.log("clicked");
+              }}
+            />
+            <View style={{ marginTop: 10 }}></View>
+          </ScrollView>
+        </View>
+        <Menu showModal={showMenu} closeModalHandler={closeMenu} />
       </View>
-      <Menu showModal={showMenu} closeModalHandler={closeMenu} />
-    </View>
-        {/* <Dropdown label="Select Item" data={data} onSelect={setSelected}/> */}
-      <ServiceSelectionForm  label={ selected || "Choose Service" } onSelect={setSelected}/>
+      {/* <Dropdown label="Select Item" data={data} onSelect={setSelected}/> */}
+      <ServiceSelectionForm
+        label={selected || "Choose Service"}
+        onSelect={setSelected}
+      />
     </>
-    
   );
 };
 

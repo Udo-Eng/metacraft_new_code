@@ -4,7 +4,7 @@ import { COLORS, SIZES } from "../../constants";
 import NextButton from "./NextButton";
 import GetStartedSection from "./GetStartedSection";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 const OnBoardingList = ({ data }) => {
   const flatlistRef = useRef();

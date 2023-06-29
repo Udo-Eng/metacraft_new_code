@@ -11,8 +11,17 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Dropdown = ({ label, data, onSelect,dropdownLabel ,tipInfo,linkText}) => {
+// Begining of the dropdown Component
+const Dropdown = ({
+  label,
+  data,
+  onSelect,
+  dropdownLabel,
+  tipInfo,
+  linkText,
+}) => {
   const DropdownButton = useRef();
+
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(undefined);
   const [dropdownTop, setDropdownTop] = useState(0);
@@ -22,26 +31,52 @@ const Dropdown = ({ label, data, onSelect,dropdownLabel ,tipInfo,linkText}) => {
   };
 
   const openDropdown = () => {
+    /*
+    The measure method on a native component 
+      Determines the location on screen, width, 
+      and height in the viewport of the given view 
+      and returns the values via an async callback.
+
+
+    */
+
     DropdownButton.current.measure((_fx, _fy, _w, h, _px, py) => {
-      setDropdownTop((py + 30));
+      // Console logging the output of the position of the dropdown Button on the screen
+      // Parameters passed to the callback function are (x, y, width, height, pageX, pageY)
+
+      setDropdownTop(py + 30);
     });
     setVisible(true);
   };
 
   const onItemPress = (item) => {
+    // Updates the state to be displayed on the button UI
     setSelected(item);
+
+    // Updates the state to be passed to the parent Ui component.
     onSelect(item);
+
+    // Toggle the Modal off after setting the Modal Values
     setVisible(false);
   };
 
+  // Function to render each dropdown Item
   const renderItem = ({ item }) => (
-    <Pressable onPress={() => onItemPress(item.label)}>
+    <Pressable onPress={() => onItemPress(item)}>
       <View style={styles.dropDownItem}>
-        <Text style={styles.dropDownText}>{item.label}</Text>
+        {/* An IIFE function to conditional render an Item  */}
+        {(() => {
+          if (item.label) {
+            return <Text>{item.label}</Text>;
+          } else {
+            return <Text style={styles.dropDownText}>{item}</Text>;
+          }
+        })()}
       </View>
     </Pressable>
   );
 
+  // Function to render the Dropdown List Ui
   const renderDropdown = () => {
     return (
       <Modal visible={visible} transparent animationType="none">
@@ -63,8 +98,21 @@ const Dropdown = ({ label, data, onSelect,dropdownLabel ,tipInfo,linkText}) => {
 
   return (
     <View style={styles.dropDownOuterContainer}>
-    <Text style={styles.labelStyle}>{dropdownLabel}</Text>
-    {tipInfo && <Text style={styles.tipInfo}>{tipInfo}<Text onPress={()=>{console.log("pressed")}}style={styles.linkText}>{linkText}</Text></Text>}
+      <Text style={styles.labelStyle}>{dropdownLabel}</Text>
+      {tipInfo && (
+        <Text style={styles.tipInfo}>
+          {tipInfo}
+          <Text
+            onPress={() => {
+              // TODO LATER pass a function to navigate to more info screen
+              console.log("pressed");
+            }}
+            style={styles.linkText}
+          >
+            {linkText}
+          </Text>
+        </Text>
+      )}
       <TouchableOpacity
         ref={DropdownButton}
         style={[styles.button, styles.dropDownContainer]}
@@ -72,6 +120,7 @@ const Dropdown = ({ label, data, onSelect,dropdownLabel ,tipInfo,linkText}) => {
       >
         {renderDropdown()}
         <Text style={styles.buttonText}>
+          {/* TODO LATER IMPLEMENT THE SERVICES LIST SELECTION DROP DOWN */}
           {(selected && selected.label) || label}
         </Text>
         <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
@@ -81,25 +130,25 @@ const Dropdown = ({ label, data, onSelect,dropdownLabel ,tipInfo,linkText}) => {
 };
 
 const styles = StyleSheet.create({
-    tipInfo:{
-        color: "#493B5D",
-        lineHeight: 12,
-        fontWeight: "500",
-        fontStyle: "normal",
-        // fontFamily:"Be Vietnam"
-        fontSize: 10,
-        marginVertical: 5,
-    },
-    linkText:{
-        textDecorationLine: "underline",
-        color: "#8C44EE",
-        lineHeight: 12,
-        fontWeight: "400",
-        fontStyle: "normal",
-        // fontFamily:"Be Vietnam"
-        fontSize: 10,
-    },
-  dropDownOuterContainer:{
+  tipInfo: {
+    color: "#493B5D",
+    lineHeight: 12,
+    fontWeight: "500",
+    fontStyle: "normal",
+    // fontFamily:"Be Vietnam"
+    fontSize: 11,
+    marginVertical: 5,
+  },
+  linkText: {
+    textDecorationLine: "underline",
+    color: "#8C44EE",
+    lineHeight: 12,
+    fontWeight: "400",
+    fontStyle: "normal",
+    // fontFamily:"Be Vietnam"
+    fontSize: 11,
+  },
+  dropDownOuterContainer: {
     marginTop: 26,
   },
   button: {
@@ -128,6 +177,8 @@ const styles = StyleSheet.create({
   buttonText: {
     flex: 1,
     textAlign: "left",
+    // Added this make the drop down color grey
+    color: "#828282",
   },
   icon: {
     marginRight: 10,
