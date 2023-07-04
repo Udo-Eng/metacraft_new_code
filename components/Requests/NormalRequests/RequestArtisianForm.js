@@ -266,7 +266,12 @@ const RequestArtisianForm = () => {
         {/*CONTINUE BUTTON */}
         <PrimaryButton
           btnContainer={styles.btnContainer}
-          onPress={onSubmitHandler}
+          // onPress={onSubmitHandler}
+          onPress={() => {
+            {
+              navigation.navigate("home");
+            }
+          }}
         >
           Find Hair stylist
         </PrimaryButton>

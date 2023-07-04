@@ -1,14 +1,16 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import Location from "../../components/home/Location";
-import MenuBarLogo from "../../components/home/MenuBarLogo";
-import WalletBalance from "../../components/home/WalletBalance";
 import RequestList from "../../components/home/RequestList";
 import ServiceSelectionForm from "../../components/Requests/NormalRequests/ServiceSelectionForm";
-import Menu from "../../components/home/Menu";
+import HomeMenu from "../../components/home/HomeMenu";
+import HomeLayout from "../../components/homeLayout/HomeLayout";
+import NewRequest from "./NewRequest/NewRequest";
+import UpcomingRequest from "./UpcomingRequest/UpcomingRequest";
+// import { useNavigation } from "@react-navigation/native";
 // import Dropdown from "../../components/ui/DropDown";
 
-const Home = () => {
+const Home = ({ navigation }) => {
+  // const navigation = useNavigation();
   const [showMenu, setShowMenu] = useState(false);
   const [selected, setSelected] = useState(undefined);
   //   const data = [
@@ -30,6 +32,7 @@ const Home = () => {
   return (
     <>
       <View style={styles.screen}>
+<<<<<<< HEAD
         <View>
           <Text style={styles.title}> Location</Text>
           <View style={styles.row}>
@@ -64,6 +67,54 @@ const Home = () => {
         label={selected || "Choose Service"}
         onSelect={setSelected}
       />
+=======
+        <HomeLayout
+          locationTitle="Current Location"
+          location="Ibadan"
+          balance="N 0.00"
+          title="Current Balance"
+          note="Top-Up"
+          data={<HomeMenu closeMenu={closeMenu} />}
+        >
+          {/* <RequestList /> */}
+
+          <View>
+            <RequestList
+              linkText="View all requests"
+              title="Ongoing requests"
+              navHandler={() => {
+                navigation.navigate("Requests");
+              }}
+            />
+            <RequestList
+              linkText="View all requests"
+              title="Upcoming requests"
+              navHandler={() => {
+                navigation.navigate("Requests");
+              }}
+            >
+              <UpcomingRequest />
+            </RequestList>
+            <RequestList
+              linkText="View all requests"
+              title="New requests"
+              navHandler={() => {
+                navigation.navigate("Requests");
+              }}
+            >
+              <NewRequest />
+            </RequestList>
+            <View style={styles.padding}></View>
+          </View>
+        </HomeLayout>
+      </View>
+
+      {/* <Dropdown label="Select Item" data={data} onSelect={setSelected}/> */}
+      {/* <ServiceSelectionForm
+        label={selected || "Choose Service"}
+        onSelect={setSelected}
+      /> */}
+>>>>>>> joshua
     </>
   );
 };

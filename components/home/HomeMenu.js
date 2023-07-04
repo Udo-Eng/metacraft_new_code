@@ -8,8 +8,6 @@ import WalletIcon from "../../assets/NavIcons/MenuNav/Wallet.svg";
 import StarRatings from "../../assets/ratings/RatingGroup.svg";
 import { useNavigation } from "@react-navigation/native";
 
-
-
 const NavLinkComponent = ({ item }) => {
   return (
     <View style={styles.navContainer}>
@@ -22,27 +20,16 @@ const NavLinkComponent = ({ item }) => {
   );
 };
 
-
-
-
-const Menu = ({ showModal, closeModalHandler }) => {
-
-
-  const modalContainerStyles = [
-    styles.bottomSheetModalContainer,
-    { top: showModal ? SIZES.height / 2 : SIZES.height },
-  ];
-
-
+const HomeMenu = ({ closeMenu }) => {
   const navigation = useNavigation();
-
 
   const navLinkData = [
     {
       icon: () => <HomeIcon width={24} height={24} />,
       title: "Home",
       handler: () => {
-        closeModalHandler();
+        console.log("clicked");
+        closeMenu();
         navigation.navigate("home");
       },
     },
@@ -50,7 +37,6 @@ const Menu = ({ showModal, closeModalHandler }) => {
       icon: () => <ProfileIcon width={24} height={24} />,
       title: "Profile",
       handler: () => {
-       
         navigation.navigate("ArtisianProfile");
       },
     },
@@ -58,7 +44,8 @@ const Menu = ({ showModal, closeModalHandler }) => {
       icon: () => <WalletIcon width={24} height={24} />,
       title: "Wallet",
       handler: () => {
-        navigation.navigate('Wallet');
+        console.log("clicked");
+        navigation.navigate("Wallet Header");
       },
     },
     {
@@ -70,36 +57,32 @@ const Menu = ({ showModal, closeModalHandler }) => {
     },
   ];
 
-
   return (
- 
-      <View style={modalContainerStyles}>
-        <View style={styles.ratingContainer}>
-          <Text
-            style={[styles.rating, { color: "#221B38" }, styles.marginRight]}
-          >
-            Rating
-          </Text>
-          <View>{/* DISPLAY STARS FOR RATING  */}</View>
-          <StarRatings width={80} height={16} />
-          <Text style={styles.rating}>3.5/5.0</Text>
+    <View>
+      <View style={styles.ratingContainer}>
+        <Text style={[styles.rating, { color: "#221B38" }, styles.marginRight]}>
+          Rating
+        </Text>
+        <View>
+          <Text>DISPLAY STARS FOR RATING </Text>
         </View>
-        <View style={styles.ratingTip}>
-          <Text style={styles.ratingTipText}>
-            Your rating is low if it falls below 3.0 your account will be
-            temporarily suspended
-          </Text>
-        </View>
-
-        {/* NAVIGATION LINKS  */}
-        {navLinkData.map((item,index) => (
-          <NavLinkComponent key={index} item={item} />
-        ))}
+        <StarRatings width={80} height={16} />
+        <Text style={styles.rating}>3.5/5.0</Text>
       </View>
+      <View style={styles.ratingTip}>
+        <Text style={styles.ratingTipText}>
+          Your rating is low if it falls below 3.0 your account will be
+          temporarily suspended
+        </Text>
+      </View>
+      {navLinkData.map((item, index) => (
+        <NavLinkComponent key={index} item={item} />
+      ))}
+    </View>
   );
 };
 
-export default Menu;
+export default HomeMenu;
 
 const styles = StyleSheet.create({
   backDrop: {

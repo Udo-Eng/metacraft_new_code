@@ -1,46 +1,35 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import HomeLayout from "../components/homeLayout/HomeLayout";
-import RequestList from "../components/home/RequestList";
-import HomeMenu from "../components/home/HomeMenu";
+import RequestList from "../../components/home/RequestList";
 
-const Home = () => {
+const PlumberFlow = () => {
   return (
     <View style={styles.screen}>
       <HomeLayout
-        locationTitle="Current Location"
-        location="Ibadan"
+        locationTitle="Update Location"
+        location="Gbagada, Lagos"
         balance="N 0.00"
         title="Current Balance"
-        note="Withdraw"
-        data={<HomeMenu closeMenu={closeMenu} />}
+        note="Top-Up"
       >
         {/* <RequestList /> */}
 
         <View>
           <RequestList
-            linkText="View all requests"
-            title="Ongoing requests"
+            linkText="View all"
+            title="Manage Requests"
             navHandler={() => {
               console.log("clicked");
             }}
           />
           <RequestList
-            linkText="View all requests"
-            title="Upcoming requests"
+            linkText="View all"
+            title="Saved Requests"
             navHandler={() => {
               console.log("clicked");
             }}
           />
-          <RequestList
-            linkText="View all requests"
-            title="New requests"
-            navHandler={() => {
-              console.log("clicked");
-            }}
-          >
-            <Text>There is a request</Text>
-          </RequestList>
           <View style={styles.padding}></View>
         </View>
       </HomeLayout>
@@ -48,7 +37,7 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PlumberFlow;
 
 const styles = StyleSheet.create({
   screen: {

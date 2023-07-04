@@ -1,15 +1,12 @@
 import { View, StyleSheet, Pressable } from "react-native";
 import React from "react";
-import SVGImg from '../../assets/NavIcons/menu.svg';
+import SVGImg from "../../assets/NavIcons/menu.svg";
 
-const MenuBarLogo = ({onPress}) => {
+const MenuBarLogo = ({ onPress }) => {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.menuContainer}>
-        <SVGImg
-          width="24"
-          height="24"
-        />
+        <SVGImg width="24" height="24" />
       </View>
     </Pressable>
   );
@@ -23,7 +20,7 @@ const styles = StyleSheet.create({
     height: 45,
     backgroundColor: "#420D8B",
     borderRadius: 45 / 2,
-    alignItems:"center",
-    justifyContent:"center"
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

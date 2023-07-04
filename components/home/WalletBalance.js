@@ -2,17 +2,17 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import WalletIcon from "../../assets/NavIcons/Wallet.svg";
 
-const WalletBalance = ({walletText}) => {
+const WalletBalance = ({ balance, title, note }) => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.balance}>N 0.00</Text>
-        <Text style={styles.description}>Current Balance</Text>
+        <Text style={styles.balance}>{balance}</Text>
+        <Text style={styles.description}>{title}</Text>
       </View>
       <View style={styles.withDrawBtn}>
         {/* WALLET ICON */}
         <WalletIcon width="24" height="24" />
-        <Text style={styles.withdrawText}>{walletText}</Text>
+        <Text style={styles.withdrawText}>{note}</Text>
       </View>
     </View>
   );
@@ -22,7 +22,7 @@ export default WalletBalance;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection:"row",
+    flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: 17,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#64478C",
   },
-  withdrawText:{
+  withdrawText: {
     textAlign: "left",
     lineHeight: 20,
     fontWeight: "500",
@@ -60,15 +60,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#420D8B",
   },
-  withDrawBtn:{
-    flexDirection:"row",
-    alignItems:"center",
+  withDrawBtn: {
+    flexDirection: "row",
+    alignItems: "center",
     justifyContent: "space-evenly",
     width: 132,
     height: 44,
-    backgroundColor:"#F1E8FD",
+    backgroundColor: "#F1E8FD",
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: "#7E60A7"
-  }
+    borderColor: "#7E60A7",
+  },
 });
