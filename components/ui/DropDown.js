@@ -17,6 +17,7 @@ const Dropdown = ({
   data,
   onSelect,
   dropdownLabel,
+  userDefinedLabelStyle,
   tipInfo,
   linkText,
 }) => {
@@ -29,6 +30,8 @@ const Dropdown = ({
   const toggleDropdown = () => {
     visible ? setVisible(false) : openDropdown();
   };
+
+  defaultLabelStyle = [styles.labelStyle,userDefinedLabelStyle];
 
   const openDropdown = () => {
     /*
@@ -98,7 +101,7 @@ const Dropdown = ({
 
   return (
     <View style={styles.dropDownOuterContainer}>
-      <Text style={styles.labelStyle}>{dropdownLabel}</Text>
+      <Text style={defaultLabelStyle}>{dropdownLabel}</Text>
       {tipInfo && (
         <Text style={styles.tipInfo}>
           {tipInfo}

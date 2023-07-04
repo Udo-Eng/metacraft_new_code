@@ -332,7 +332,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     marginBottom: 15,
   },
-
   imageContainer: {
     position: "relative",
     width: 74,
