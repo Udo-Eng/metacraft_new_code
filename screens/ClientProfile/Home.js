@@ -32,7 +32,6 @@ const Home = ({ navigation }) => {
   return (
     <>
       <View style={styles.screen}>
-<<<<<<< HEAD
         <View>
           <Text style={styles.title}> Location</Text>
           <View style={styles.row}>
@@ -67,54 +66,53 @@ const Home = ({ navigation }) => {
         label={selected || "Choose Service"}
         onSelect={setSelected}
       />
-=======
-        <HomeLayout
-          locationTitle="Current Location"
-          location="Ibadan"
-          balance="N 0.00"
-          title="Current Balance"
-          note="Top-Up"
-          data={<HomeMenu closeMenu={closeMenu} />}
-        >
-          {/* <RequestList /> */}
 
-          <View>
-            <RequestList
-              linkText="View all requests"
-              title="Ongoing requests"
-              navHandler={() => {
-                navigation.navigate("Requests");
-              }}
-            />
-            <RequestList
-              linkText="View all requests"
-              title="Upcoming requests"
-              navHandler={() => {
-                navigation.navigate("Requests");
-              }}
-            >
-              <UpcomingRequest />
-            </RequestList>
-            <RequestList
-              linkText="View all requests"
-              title="New requests"
-              navHandler={() => {
-                navigation.navigate("Requests");
-              }}
-            >
-              <NewRequest />
-            </RequestList>
-            <View style={styles.padding}></View>
-          </View>
-        </HomeLayout>
-      </View>
 
+{/* JOSHUA ARTISIAN SCREEN  PAGE  */}
+      <HomeLayout
+        locationTitle="Current Location"
+        location="Ibadan"
+        balance="N 0.00"
+        title="Current Balance"
+        note="Top-Up"
+        data={<HomeMenu closeMenu={closeMenu} />}
+      >
+        {/* <RequestList /> */}
+
+        <View>
+          <RequestList
+            linkText="View all requests"
+            title="Ongoing requests"
+            navHandler={() => {
+              navigation.navigate("Requests");
+            }}
+          />
+          <RequestList
+            linkText="View all requests"
+            title="Upcoming requests"
+            navHandler={() => {
+              navigation.navigate("Requests");
+            }}
+          >
+            <UpcomingRequest />
+          </RequestList>
+          <RequestList
+            linkText="View all requests"
+            title="New requests"
+            navHandler={() => {
+              navigation.navigate("Requests");
+            }}
+          >
+            <NewRequest />
+          </RequestList>
+          <View style={styles.padding}></View>
+        </View>
+      </HomeLayout>
       {/* <Dropdown label="Select Item" data={data} onSelect={setSelected}/> */}
       {/* <ServiceSelectionForm
         label={selected || "Choose Service"}
         onSelect={setSelected}
       /> */}
->>>>>>> joshua
     </>
   );
 };
