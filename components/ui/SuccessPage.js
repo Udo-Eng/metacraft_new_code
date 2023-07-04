@@ -7,13 +7,13 @@ const SuccessPage = ({ title, image, note, btnText, onPress }) => {
       <Text style={styles.title}>{title}</Text>
       <Image style={styles.img} source={image} />
       <Text style={styles.note}>{note}</Text>
-      <View style={styles.btnContainer}>
-        <Pressable onPress={onPress}>
-          <View style={styles.btn}>
-            <Text style={styles.btnText}>{btnText}</Text>
-          </View>
-        </Pressable>
-      </View>
+
+      {/* Navigation Button */}
+      <Pressable onPress={onPress}>
+        <View style={styles.btnContainer}>
+          <Text style={styles.btnText}>{btnText}</Text>
+        </View>
+      </Pressable>
     </View>
   );
 };
@@ -22,15 +22,16 @@ export default SuccessPage;
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
+    flex: 1,
     justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
   },
   title: {
-    fontSize: 16,
-    fontWeight: 500,
-    marginBottom: "20%",
+    fontSize: 18,
+    fontWeight: "500",
+
+    marginBottom: 111,
   },
   img: {
     marginBottom: "20%",
@@ -42,16 +43,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   btnContainer: {
-    display: "flex",
     marginTop: "10%",
-  },
-  btn: {
-    width: "60%",
+    alignItems: 'center',
+    justifyContent: "center",
+    width: 320,
+    height: 44,
     backgroundColor: "#420d8b",
     borderRadius: 4,
   },
+
   btnText: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: "500",
     color: "#f1e8fd",
   },

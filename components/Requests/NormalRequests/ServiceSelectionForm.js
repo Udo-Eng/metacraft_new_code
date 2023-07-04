@@ -68,16 +68,16 @@ export default ServiceSelectionForm = ({ label, onSelect }) => {
     setVisible(false);
   };
 
-  function renderItem({ item }) {
-    return (
-      <Pressable onPress={() => onItemPress(item.text)}>
-        <View style={styles.dropDownItem}>
-          {item.icon()}
-          <Text style={styles.dropDownText}>{item.text}</Text>
-        </View>
-      </Pressable>
-    );
-  }
+  // function renderItem({ item }) {
+  //   return (
+  //     <Pressable onPress={() => onItemPress(item.text)}>
+  //       <View style={styles.dropDownItem}>
+  //         {item.icon()}
+  //         <Text style={styles.dropDownText}>{item.text}</Text>
+  //       </View>
+  //     </Pressable>
+  //   );
+  // }
 
   const toggleDropdown = () => {
     setVisible((prevVisiblity) => !prevVisiblity);

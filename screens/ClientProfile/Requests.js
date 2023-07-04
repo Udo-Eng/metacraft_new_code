@@ -26,7 +26,7 @@ const Requests = ({ navigation }) => {
       </ScrollView>
       {Request.map((data, index) => {
         return (
-          <View style={styles.innerContainer}>
+          <View style={styles.innerContainer} key={index}>
             <View style={styles.textContent}>
               <Text style={styles.title}>{data.title}</Text>
               <View style={styles.textContainer}>
@@ -59,6 +59,7 @@ const Requests = ({ navigation }) => {
                 })
               }
             >
+
               <View style={styles.img}>
                 <data.img />
                 <View style={styles.imgTextContainer}>

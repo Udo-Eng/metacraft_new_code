@@ -1,11 +1,16 @@
 import React from "react";
-// import Home from "../screens/ClientProfile/Home";
-import RequestFormScreen from "../screens/ClientProfile/RequestFormScreen";
+import Home from "../screens/ClientProfile/Home";
+// import CancellationFormScreeen from "../screens/ClientProfile/FeedBack/CancellationFeedBackForm";
+// import JobCompletionFormScreen  from "../screens/ClientProfile/FeedBack/JobCompletionForm";
+// import RequestFormScreen from "../screens/ClientProfile/RequestFormScreen";
 // import AboutArtisianScreen from "../screens/ClientProfile/AboutArtisian";
 // import ConfirmRequestScreen from "../screens/ClientProfile/ConfirmRequest";
 // import ConFirmingRequestScreen from "../screens/ClientProfile/LoadingScreens/ConFirmingRequest";
-import RequestDetialsScreen from "../screens/ClientProfile/RequestDetails";
+// import RequestDetialsScreen from "../screens/ClientProfile/RequestDetails";
 // import FindingArtisianScreen from "../screens/ClientProfile/LoadingScreens/FindingArtisian";
+
+// JOSHUA SCREENS FOR ARTISANS 
+
 import Requests from "../screens/ClientProfile/Requests";
 import SubmitBid from "../screens/ClientProfile/NewRequest/SubmitBid";
 import BidSuccess from "../screens/ClientProfile/NewRequest/BidSuccess";
@@ -21,19 +26,18 @@ const ClientProfileScreens = (Stack) => {
   return (
     <>
       {/* Client Home Screen  */}
-      {/* <Stack.Screen
       <Stack.Screen
         options={{ headerShown: false }}
         name="home"
         component={Home}
       />
 
-      {/* RequestFormScreen */}
-      <Stack.Screen
+     {/* RequestFormScreen */}
+      {/* <Stack.Screen
         options={{ headerShown: false }}
         name="requestForm"
         component={RequestFormScreen}
-      />
+      /> */}
 
 
       {/* 
@@ -94,6 +98,9 @@ const ClientProfileScreens = (Stack) => {
         name="requestForm"
         component={FindingArtisianScreen}
       /> */}
+
+
+
       {/* Request Screen */}
       <Stack.Screen name="Requests" component={Requests} />
       <Stack.Screen name="Client Request" component={NewClientRequest} />
@@ -111,6 +118,12 @@ const ClientProfileScreens = (Stack) => {
       <Stack.Screen name="Quote Submitted" component={QuoteSubmitted} />
       <Stack.Screen name="Start Job" component={StartJob} />
       <Stack.Screen name="Job Complete" component={JobComplete} />
+
+
+
+      {/* TESTING JUST THE CANCELLATION FORM AND THE JOB COMPLETION FORM  */}
+      {/* <Stack.Screen options={{ headerShown: false }} name="CancellationForm" component={CancellationFormScreeen} /> */}
+      {/* <Stack.Screen options={{ headerShown: false }} name="JobCompletionForm" component={JobCompletionFormScreen} /> */}
     </>
   );
 };

@@ -1,10 +1,11 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable,ScrollView } from "react-native";
 import React from "react";
 import { ClientImage, ClientInput } from "../../../components/ui/ClientInput";
 import { useNavigation } from "@react-navigation/native";
 
 const NewClientRequest = ({ route }) => {
   const navigation = useNavigation();
+  console.log(route.params);
   const {
     id,
     date,
@@ -16,8 +17,10 @@ const NewClientRequest = ({ route }) => {
     payment,
     note,
   } = route.params;
+
+
   return (
-    <View style={styles.container}>
+    <ScrollView  contentContainerStyle={styles.container}>
       <ClientInput
         text="Client's Location"
         inputBorder={styles.inputBorder}
@@ -84,7 +87,7 @@ const NewClientRequest = ({ route }) => {
           <Text style={styles.btnText}>Continue</Text>
         </Pressable>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

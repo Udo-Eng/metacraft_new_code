@@ -12,8 +12,7 @@ export const ClientInput = ({
     <View style={container}>
       <Text style={styles.text}>{text}</Text>
       <View style={[styles.inputField, inputBorder]}>
-        {children}
-        
+        {children}  
       </View>
     </View>
   );

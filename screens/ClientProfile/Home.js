@@ -1,8 +1,11 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet,ScrollView } from "react-native";
 import React, { useState } from "react";
 import RequestList from "../../components/home/RequestList";
+import Location from "../../components/home/Location";
+import WalletBalance from "../../components/home/WalletBalance";
+import MenuBarLogo from "../../components/home/MenuBarLogo";
 import ServiceSelectionForm from "../../components/Requests/NormalRequests/ServiceSelectionForm";
-import HomeMenu from "../../components/home/HomeMenu";
+import Menu from "../../components/home/HomeMenu";
 import HomeLayout from "../../components/homeLayout/HomeLayout";
 import NewRequest from "./NewRequest/NewRequest";
 import UpcomingRequest from "./UpcomingRequest/UpcomingRequest";
@@ -32,14 +35,14 @@ const Home = ({ navigation }) => {
   return (
     <>
       <View style={styles.screen}>
-        <View>
-          <Text style={styles.title}> Location</Text>
-          <View style={styles.row}>
-            <Location />
-            <MenuBarLogo onPress={displayUserMenu} />
+          <View>
+            <Text style={styles.title}>Location</Text>
+            <View style={styles.row}>
+              <Location location="Ibadan" />
+              <MenuBarLogo onPress={displayUserMenu} />
+            </View>
           </View>
-        </View>
-        <WalletBalance walletText="Top-Up" />
+        <WalletBalance note="Top-Up" balance={"0.00"} title={"Current Balance"}  />
 
         {/* <RequestList /> */}
         <View style={styles.requestListContainer}>
@@ -59,6 +62,7 @@ const Home = ({ navigation }) => {
             <View style={{ marginTop: 10 }}></View>
           </ScrollView>
         </View>
+        {/* Display the User Menu List  */}
         <Menu showModal={showMenu} closeModalHandler={closeMenu} />
       </View>
       {/* <Dropdown label="Select Item" data={data} onSelect={setSelected}/> */}
@@ -69,7 +73,7 @@ const Home = ({ navigation }) => {
 
 
 {/* JOSHUA ARTISIAN SCREEN  PAGE  */}
-      <HomeLayout
+      {/* <HomeLayout
         locationTitle="Current Location"
         location="Ibadan"
         balance="N 0.00"
@@ -77,7 +81,7 @@ const Home = ({ navigation }) => {
         note="Top-Up"
         data={<HomeMenu closeMenu={closeMenu} />}
       >
-        {/* <RequestList /> */}
+      
 
         <View>
           <RequestList
@@ -107,9 +111,9 @@ const Home = ({ navigation }) => {
           </RequestList>
           <View style={styles.padding}></View>
         </View>
-      </HomeLayout>
+      </HomeLayout> */}
       {/* <Dropdown label="Select Item" data={data} onSelect={setSelected}/> */}
-      {/* <ServiceSelectionForm
+     {/* <ServiceSelectionForm
         label={selected || "Choose Service"}
         onSelect={setSelected}
       /> */}
